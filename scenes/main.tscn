@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://biyaku18sftcn"]
 
+[ext_resource type="PackedScene" uid="uid://gvbuo7q7w4iq" path="res://scenes/main_menu.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bpetdg2tsoe18" path="res://scenes/top_floor.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bxkf3fx76lfpu" path="res://scenes/lower_floors.tscn" id="3_tbgi4"]
+
 [node name="Main" type="Node" unique_id=357506766]
+
+[node name="MainMenu" parent="." unique_id=1027348327 instance=ExtResource("1_sugp2")]
+
+[node name="TopFloor" parent="." unique_id=202554889 instance=ExtResource("2_jyhfs")]
+
+[node name="LowerFloors" parent="." unique_id=980170450 instance=ExtResource("3_tbgi4")]
