@@ -1,0 +1,16 @@
+{
+	"player":3,
+	"spawntables":{
+		"floor 1-5": null,
+		"floor 5-10": null,
+		"floor 11-15": null,
+	},
+	"enemies":[
+		{
+			"Name": "Placeholder"
+		},
+		{
+			"Name": "Placeholder"
+		},
+	]
+}

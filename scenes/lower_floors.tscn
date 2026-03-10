@@ -1,3 +1,51 @@
 [gd_scene format=3 uid="uid://bxkf3fx76lfpu"]
 
+[ext_resource type="Script" uid="uid://b6mh8ruip2tuf" path="res://scenes/health_component.gd" id="1_p1fvc"]
+[ext_resource type="Script" uid="uid://dqhu3a4icbu7w" path="res://scenes/attack_component.gd" id="2_tlmp2"]
+[ext_resource type="Script" uid="uid://gu2w65mspdtg" path="res://scenes/attack_button.gd" id="3_nl3y5"]
+[ext_resource type="Script" uid="uid://cqu4hxfkt0srn" path="res://scenes/enemy.gd" id="4_6u82i"]
+
 [node name="LowerFloors" type="Node" unique_id=980170450]
+
+[node name="Player" type="Node" parent="." unique_id=892246531]
+
+[node name="HealthComponent" type="Node" parent="Player" unique_id=1605038635 node_paths=PackedStringArray("health_label")]
+script = ExtResource("1_p1fvc")
+health_label = NodePath("../HealthLabel")
+metadata/_custom_type_script = "uid://b6mh8ruip2tuf"
+
+[node name="HealthLabel" type="Label" parent="Player" unique_id=763407472]
+offset_right = 192.0
+offset_bottom = 128.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackComponent" type="Node" parent="Player" unique_id=99837295 node_paths=PackedStringArray("defendant_health")]
+script = ExtResource("2_tlmp2")
+defendant_health = NodePath("../../Enemy/HealthComponent")
+
+[node name="AttackButton" type="Button" parent="Player" unique_id=631035094 node_paths=PackedStringArray("attack")]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("3_nl3y5")
+attack = NodePath("../AttackComponent")
+
+[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("health")]
+script = ExtResource("4_6u82i")
+health = NodePath("HealthComponent")
+
+[node name="HealthComponent" type="Node" parent="Enemy" unique_id=2052786982 node_paths=PackedStringArray("health_label")]
+script = ExtResource("1_p1fvc")
+health_label = NodePath("../HealthLabel")
+metadata/_custom_type_script = "uid://b6mh8ruip2tuf"
+
+[node name="HealthLabel" type="Label" parent="Enemy" unique_id=791564894]
+offset_left = 960.0
+offset_right = 1152.0
+offset_bottom = 128.0
+
+[node name="AttackComponent" type="Node" parent="Enemy" unique_id=1504736633 node_paths=PackedStringArray("defendant_health")]
+script = ExtResource("2_tlmp2")
+defendant_health = NodePath("../../Player/HealthComponent")
+
+[node name="Transition" type="Node" parent="." unique_id=385605274]
