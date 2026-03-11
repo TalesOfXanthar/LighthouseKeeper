@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://csh55wnyvc8q3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukcvp"]
+load_path = "res://.godot/imported/placeholder.jpg-27add0e64bfcbb55648d6b90a57a1287.ctex"
+
+[node name="MainMenu" type="Control" unique_id=1634286431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2005090945]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = SubResource("CompressedTexture2D_ukcvp")
+expand_mode = 1
+stretch_mode = 4
