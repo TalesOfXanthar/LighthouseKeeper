@@ -1,16 +1,29 @@
 {
 	"player":3,
-	"spawntables":{
-		"floor 1-5": null,
-		"floor 5-10": null,
-		"floor 11-15": null,
-	},
-	"enemies":[
-		{
-			"Name": "Placeholder"
+	"spawntables":[
+		[
+			"easy",
+		],
+		[
+			"easy",
+			"easy_boss",
+		],
+		[
+			"medium",
+		]
+	],
+	"enemies":{
+		"easy": {
+			"hit_points": 10,
+			"attack_damage": 5
 		},
-		{
-			"Name": "Placeholder"
+		"easy_boss": {
+			"hit_points": 25,
+			"attack_damage": 10
 		},
-	]
+		"medium": {
+			"hit_points": 15,
+			"attack_damage": 8
+		},
+	}
 }
