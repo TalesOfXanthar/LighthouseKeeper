@@ -44,11 +44,10 @@ script = ExtResource("5_0tqfk")
 [node name="InventoryComponent" type="Node" parent="Player" unique_id=1931694659]
 script = ExtResource("6_h1h43")
 
-[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("health", "attack", "action")]
+[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("health", "attack")]
 script = ExtResource("4_6u82i")
 health = NodePath("HealthComponent")
 attack = NodePath("AttackComponent")
-action = NodePath("CounterActionComponent")
 
 [node name="HealthComponent" type="Node" parent="Enemy" unique_id=2052786982 node_paths=PackedStringArray("health_label")]
 script = ExtResource("1_p1fvc")
@@ -64,7 +63,7 @@ offset_bottom = 128.0
 script = ExtResource("2_tlmp2")
 defendant_health = NodePath("../../Player/HealthComponent")
 
-[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "attack", "enemy_traits")]
+[node name="CounterattackComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "attack", "enemy_traits")]
 script = ExtResource("5_ckjuy")
 defendant_action_controller = NodePath("../../Player/ActionControllerComponent")
 attack = NodePath("../AttackComponent")

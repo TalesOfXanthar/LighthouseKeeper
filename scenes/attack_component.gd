@@ -7,5 +7,9 @@ class_name AttackComponent
 
 
 # Below are all the different kinds of basic attack functions
-func deal_damage():
-	defendant_health.lose_health(attack_damage)
+
+# Deals damage, taking in defense and dodge_chance.
+func deal_damage(damage = attack_damage, defense = 0, dodge_chance = 0):
+	if roundi(randf() * 100) > dodge_chance:
+		defendant_health.lose_health(damage - defense)
+		

@@ -13,6 +13,10 @@
 		]
 	],
 	"enemies":{
+		"error": {
+			"hit_points": 1000,
+			"attack_damage": 0
+		},
 		"easy": {
 			"hit_points": 10,
 			"attack_damage": 5

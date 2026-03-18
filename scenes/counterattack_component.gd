@@ -1,14 +1,18 @@
 extends Node
-class_name CounterattackComponent
+class_name CounterActionComponent
 
-@export var defendant_attack_button : Button
+@export var defendant_action_controller : ActionControllerComponent
 
 @export var attack : AttackComponent
 @export var enemy_traits : Enemy
 
-func _ready() -> void:
-	defendant_attack_button.connect("pressed", defendant_attacked)
-	
+signal death_action
 
-func defendant_attacked():
-	attack.deal_damage()
+func _ready() -> void:
+	defendant_action_controller.connect("performed_action", defendant_performed_action)
+
+func defendant_performed_action():
+	if enemy_traits.is_dead:
+		death_action.emit()
+	else:
+		attack.deal_damage()
