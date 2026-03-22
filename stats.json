@@ -13,20 +13,24 @@
 		]
 	],
 	"enemies":{
-		"error": {
-			"hit_points": 1000,
+		"null": {
+			"max_hit_points": 1000,
 			"attack_damage": 0
 		},
 		"easy": {
-			"hit_points": 10,
+			"max_hit_points": 10,
 			"attack_damage": 5
 		},
 		"easy_boss": {
-			"hit_points": 25,
+			"max_hit_points": 25,
 			"attack_damage": 10
 		},
 		"medium": {
-			"hit_points": 15,
+			"max_hit_points": 15,
+			"attack_damage": 8
+		},
+		"": {
+			"max_hit_points": 15,
 			"attack_damage": 8
 		},
 	}

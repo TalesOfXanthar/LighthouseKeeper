@@ -1,5 +1,7 @@
 {
-	"armor": {
-		
+	"none": {
+		"tags": ["armor", "weapon"],
+		"defense": 0,
+		"attack": 0,
 	}
 }
