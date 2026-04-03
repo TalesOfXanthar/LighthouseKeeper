@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bxkf3fx76lfpu"]
+
+[ext_resource type="Script" uid="uid://bxle88v26h44j" path="res://component_managers/player.gd" id="1_hjlp6"]
+[ext_resource type="Script" uid="uid://b6mh8ruip2tuf" path="res://components/health_component.gd" id="1_p1fvc"]
+[ext_resource type="Script" uid="uid://dqhu3a4icbu7w" path="res://components/action_component.gd" id="2_tlmp2"]
+[ext_resource type="Script" uid="uid://gu2w65mspdtg" path="res://scenes/attack_button.gd" id="3_nl3y5"]
+[ext_resource type="Script" uid="uid://cqu4hxfkt0srn" path="res://component_managers/enemy.gd" id="4_6u82i"]
+[ext_resource type="Script" uid="uid://b01htnlavlyg6" path="res://components/action_controller_component.gd" id="5_0tqfk"]
+[ext_resource type="Script" uid="uid://c6djh6b5oe206" path="res://components/counteraction_component.gd" id="5_ckjuy"]
+[ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://components/inventory_component.gd" id="6_h1h43"]
+[ext_resource type="Script" uid="uid://b0a57u4ff3skc" path="res://component_managers/buttons.gd" id="7_homev"]
+[ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://components/stats_component.gd" id="7_tuyco"]
+[ext_resource type="Script" uid="uid://p1thiitjlgy2" path="res://components/enemy_swapper_component.gd" id="9_c3ggw"]
+
+[node name="LowerFloors" type="Node" unique_id=980170450]
+
+[node name="Player" type="Node" parent="." unique_id=892246531 node_paths=PackedStringArray("stats", "health")]
+script = ExtResource("1_hjlp6")
+stats = NodePath("PlayerStats")
+health = NodePath("PlayerHealth")
+
+[node name="PlayerHealth" type="Node" parent="Player" unique_id=1605038635 node_paths=PackedStringArray("stats", "health_label")]
+script = ExtResource("1_p1fvc")
+stats = NodePath("../PlayerStats")
+health_label = NodePath("../HealthLabel")
+metadata/_custom_type_script = "uid://b6mh8ruip2tuf"
+
+[node name="HealthLabel" type="Label" parent="Player" unique_id=763407472]
+offset_right = 192.0
+offset_bottom = 128.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAction" type="Node" parent="Player" unique_id=99837295 node_paths=PackedStringArray("defendant_health", "stats")]
+script = ExtResource("2_tlmp2")
+defendant_health = NodePath("../../Enemy/EnemyHealth")
+stats = NodePath("../PlayerStats")
+
+[node name="ActionControllerComponent" type="Node" parent="Player" unique_id=1673276164]
+script = ExtResource("5_0tqfk")
+
+[node name="InventoryComponent" type="Node" parent="Player" unique_id=1931694659]
+script = ExtResource("6_h1h43")
+
+[node name="PlayerStats" type="Node" parent="Player" unique_id=295149869]
+script = ExtResource("7_tuyco")
+
+[node name="Buttons" type="Node" parent="Player" unique_id=2034457476]
+script = ExtResource("7_homev")
+
+[node name="AttackButton" type="Button" parent="Player/Buttons" unique_id=631035094 node_paths=PackedStringArray("action", "stats", "action_performer")]
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 128.0
+text = "attack"
+script = ExtResource("3_nl3y5")
+action = NodePath("../../PlayerAction")
+stats = NodePath("../../PlayerStats")
+action_performer = NodePath("../../ActionControllerComponent")
+
+[node name="HealButton" type="Button" parent="Player/Buttons" unique_id=1303676691]
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 320.0
+offset_bottom = 192.0
+
+[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper")]
+script = ExtResource("4_6u82i")
+stats = NodePath("EnemyStats")
+health = NodePath("EnemyHealth")
+action = NodePath("CounterActionComponent")
+enemy_swapper = NodePath("EnemySwapper")
+
+[node name="EnemyHealth" type="Node" parent="Enemy" unique_id=2052786982 node_paths=PackedStringArray("stats", "health_label")]
+script = ExtResource("1_p1fvc")
+stats = NodePath("../EnemyStats")
+health_label = NodePath("../HealthLabel")
+metadata/_custom_type_script = "uid://b6mh8ruip2tuf"
+
+[node name="HealthLabel" type="Label" parent="Enemy" unique_id=791564894]
+offset_left = 960.0
+offset_right = 1152.0
+offset_bottom = 128.0
+
+[node name="EnemyAction" type="Node" parent="Enemy" unique_id=1504736633 node_paths=PackedStringArray("defendant_health", "stats")]
+script = ExtResource("2_tlmp2")
+defendant_health = NodePath("../../Player/PlayerHealth")
+stats = NodePath("../EnemyStats")
+
+[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "action", "enemy_traits")]
+script = ExtResource("5_ckjuy")
+defendant_action_controller = NodePath("../../Player/ActionControllerComponent")
+action = NodePath("../EnemyAction")
+enemy_traits = NodePath("..")
+
+[node name="EnemySwapper" type="Node" parent="Enemy" unique_id=1407717974 node_paths=PackedStringArray("stats")]
+script = ExtResource("9_c3ggw")
+stats = NodePath("../EnemyStats")
+
+[node name="EnemyStats" type="Node" parent="Enemy" unique_id=1332081673]
+script = ExtResource("7_tuyco")

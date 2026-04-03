@@ -9,6 +9,7 @@ class_name StatsComponent
 # they have a stat that it wants to use. This also allows easy editing of stats 
 # in the editor.
 
+# ALL STATS
 ## The maximum amount of hit points.
 @export var max_hit_points := 10
 ## The current amount of hit points.
@@ -23,3 +24,17 @@ class_name StatsComponent
 @export var attack_randomizer_floor := -1
 ## The maximum the damage randomizer can add during a normal attack.
 @export var attack_randomizer_ceiling := 1
+
+@export var weapon := "none"
+
+@export var armor := "none"
+
+# PLAYER SPECIFIC STATS
+## The percentage of your lost hit points that you will heal.
+@export var heal_percentage := 0.5
+## The amount of hit points you will heal added to the percentage.
+@export var heal_increase := 0
+## The amount of times you can heal left.
+@export var heal_charges := 3
+
+@export var light := "none"

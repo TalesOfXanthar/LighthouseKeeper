@@ -6,7 +6,6 @@ class_name Enemy
 
 @export var stats : StatsComponent
 @export var health : HealthComponent
-@export var attack : AttackComponent
 @export var action : CounterActionComponent
 @export var enemy_swapper : EnemySwapperComponent
 

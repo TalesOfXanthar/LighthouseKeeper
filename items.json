@@ -1,7 +1,12 @@
 {
 	"none": {
-		"tags": ["armor", "weapon"],
+		"type_tags": ["armor", "weapon"],
 		"defense": 0,
-		"attack": 0,
+		"attack_damage": 0,
+	},
+	"mega_knife": {
+		"type_tags": ["weapon"],
+		"defense": 100,
+		"attack_damage": 4,
 	}
 }

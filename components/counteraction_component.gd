@@ -5,7 +5,7 @@ class_name CounterActionComponent
 
 @export var defendant_action_controller : ActionControllerComponent
 
-@export var attack : AttackComponent
+@export var action : ActionComponent
 @export var enemy_traits : Enemy
 
 # This is for giving a signal to the enemy script that basically says: "hey, I'm
@@ -19,4 +19,4 @@ func _defendant_performed_action():
 	if enemy_traits.is_dead:
 		death_action.emit()
 	else:
-		attack.deal_damage()
+		action.deal_damage()

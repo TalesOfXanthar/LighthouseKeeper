@@ -31,7 +31,6 @@ var base_stats_names = [
 
 func swap_enemy(enemy_name):
 	var new_base_stats : Dictionary = stats_dictionary["enemies"][enemy_name]
-	print(enemy_name)
 	for stat_num in range(len(base_stats_names)):
 		if new_base_stats.has(base_stats_names[stat_num]):
 			stats.set(base_stats_names[stat_num], new_base_stats[base_stats_names[stat_num]])

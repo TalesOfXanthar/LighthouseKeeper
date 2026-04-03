@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://bxkf3fx76lfpu"]
 
-[ext_resource type="Script" uid="uid://bxle88v26h44j" path="res://scenes/player.gd" id="1_hjlp6"]
-[ext_resource type="Script" uid="uid://b6mh8ruip2tuf" path="res://scenes/health_component.gd" id="1_p1fvc"]
-[ext_resource type="Script" uid="uid://dqhu3a4icbu7w" path="res://scenes/attack_component.gd" id="2_tlmp2"]
-[ext_resource type="Script" uid="uid://gu2w65mspdtg" path="res://scenes/attack_button.gd" id="3_nl3y5"]
-[ext_resource type="Script" uid="uid://cqu4hxfkt0srn" path="res://scenes/enemy.gd" id="4_6u82i"]
-[ext_resource type="Script" uid="uid://b01htnlavlyg6" path="res://scenes/action_controller.gd" id="5_0tqfk"]
-[ext_resource type="Script" uid="uid://c6djh6b5oe206" path="res://scenes/counteraction_component.gd" id="5_ckjuy"]
-[ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://scenes/inventory.gd" id="6_h1h43"]
-[ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://scenes/stats_component.gd" id="7_tuyco"]
-[ext_resource type="Script" uid="uid://p1thiitjlgy2" path="res://scenes/enemy_swapper_component.gd" id="9_c3ggw"]
+[ext_resource type="Script" uid="uid://bxle88v26h44j" path="res://component_managers/player.gd" id="1_hjlp6"]
+[ext_resource type="Script" uid="uid://b6mh8ruip2tuf" path="res://components/health_component.gd" id="1_p1fvc"]
+[ext_resource type="Script" uid="uid://dqhu3a4icbu7w" path="res://components/action_component.gd" id="2_tlmp2"]
+[ext_resource type="Script" uid="uid://cqu4hxfkt0srn" path="res://component_managers/enemy.gd" id="4_6u82i"]
+[ext_resource type="Script" uid="uid://b01htnlavlyg6" path="res://components/action_controller_component.gd" id="5_0tqfk"]
+[ext_resource type="Script" uid="uid://c6djh6b5oe206" path="res://components/counteraction_component.gd" id="5_ckjuy"]
+[ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://components/equip_component.gd" id="6_h1h43"]
+[ext_resource type="Script" uid="uid://b0a57u4ff3skc" path="res://component_managers/action_buttons.gd" id="7_homev"]
+[ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://components/stats_component.gd" id="7_tuyco"]
+[ext_resource type="Script" uid="uid://bpq4bpdqdf5xx" path="res://scenes/inventory_gui_controller.gd" id="8_tuyco"]
+[ext_resource type="Script" uid="uid://p1thiitjlgy2" path="res://components/enemy_swapper_component.gd" id="9_c3ggw"]
+[ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="9_homev"]
 
 [node name="LowerFloors" type="Node" unique_id=980170450]
 
@@ -30,33 +32,106 @@ offset_bottom = 128.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AttackComponent" type="Node" parent="Player" unique_id=99837295 node_paths=PackedStringArray("defendant_health", "stats")]
+[node name="PlayerAction" type="Node" parent="Player" unique_id=99837295 node_paths=PackedStringArray("stats", "health", "defendant_health", "defendant_stats")]
 script = ExtResource("2_tlmp2")
+stats = NodePath("../PlayerStats")
+health = NodePath("../PlayerHealth")
 defendant_health = NodePath("../../Enemy/EnemyHealth")
-stats = NodePath("../PlayerStats")
-
-[node name="AttackButton" type="Button" parent="Player" unique_id=631035094 node_paths=PackedStringArray("attack", "stats", "action_performer")]
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("3_nl3y5")
-attack = NodePath("../AttackComponent")
-stats = NodePath("../PlayerStats")
-action_performer = NodePath("../ActionControllerComponent")
+defendant_stats = NodePath("../../Enemy/EnemyStats")
 
 [node name="ActionControllerComponent" type="Node" parent="Player" unique_id=1673276164]
 script = ExtResource("5_0tqfk")
 
-[node name="InventoryComponent" type="Node" parent="Player" unique_id=1931694659]
+[node name="EquipComponent" type="Node" parent="Player" unique_id=1931694659 node_paths=PackedStringArray("stats")]
 script = ExtResource("6_h1h43")
+stats = NodePath("../PlayerStats")
 
 [node name="PlayerStats" type="Node" parent="Player" unique_id=295149869]
 script = ExtResource("7_tuyco")
 
-[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "attack", "action", "enemy_swapper")]
+[node name="ActionButtons" type="Control" parent="Player" unique_id=1953209855 node_paths=PackedStringArray("action", "stats", "action_performer", "attack_button", "heal_button")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_homev")
+action = NodePath("../PlayerAction")
+stats = NodePath("../PlayerStats")
+action_performer = NodePath("../ActionControllerComponent")
+attack_button = NodePath("AttackButton")
+heal_button = NodePath("HealButton")
+
+[node name="AttackButton" type="Button" parent="Player/ActionButtons" unique_id=631035094]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 128.0
+text = "attack"
+
+[node name="HealButton" type="Button" parent="Player/ActionButtons" unique_id=1303676691]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 320.0
+offset_bottom = 192.0
+
+[node name="InventoryGUIController" type="Control" parent="Player" unique_id=783507343 node_paths=PackedStringArray("equipper", "stats", "inventory_container", "equip_button")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("8_tuyco")
+equipper = NodePath("../EquipComponent")
+stats = NodePath("../PlayerStats")
+inventory_container = NodePath("ScrollContainer/InventoryItems")
+equip_button = NodePath("EquipButton")
+items_group = ExtResource("9_homev")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Player/InventoryGUIController" unique_id=1025452631]
+layout_mode = 0
+offset_top = 512.0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="InventoryItems" type="HBoxContainer" parent="Player/InventoryGUIController/ScrollContainer" unique_id=1672017642]
+layout_mode = 2
+
+[node name="Item1" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=1033766154]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("9_homev")
+text = "none"
+metadata/name = "none"
+
+[node name="Item2" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=2018682903]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("9_homev")
+text = "mega_knife"
+metadata/name = "mega_knife"
+
+[node name="Item3" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=371607515]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("9_homev")
+text = "mega armor"
+
+[node name="Item4" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=683519137]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("9_homev")
+text = "mega armor"
+
+[node name="EquipButton" type="Button" parent="Player/InventoryGUIController" unique_id=1747136310]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 384.0
+offset_right = 960.0
+offset_bottom = 448.0
+text = "equip weapon"
+
+[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper")]
 script = ExtResource("4_6u82i")
 stats = NodePath("EnemyStats")
 health = NodePath("EnemyHealth")
-attack = NodePath("EnemyAttack")
 action = NodePath("CounterActionComponent")
 enemy_swapper = NodePath("EnemySwapper")
 
@@ -71,15 +146,17 @@ offset_left = 960.0
 offset_right = 1152.0
 offset_bottom = 128.0
 
-[node name="EnemyAttack" type="Node" parent="Enemy" unique_id=1504736633 node_paths=PackedStringArray("defendant_health", "stats")]
+[node name="EnemyAction" type="Node" parent="Enemy" unique_id=1504736633 node_paths=PackedStringArray("stats", "health", "defendant_health", "defendant_stats")]
 script = ExtResource("2_tlmp2")
-defendant_health = NodePath("../../Player/PlayerHealth")
 stats = NodePath("../EnemyStats")
+health = NodePath("../EnemyHealth")
+defendant_health = NodePath("../../Player/PlayerHealth")
+defendant_stats = NodePath("../../Player/PlayerStats")
 
-[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "attack", "enemy_traits")]
+[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "action", "enemy_traits")]
 script = ExtResource("5_ckjuy")
 defendant_action_controller = NodePath("../../Player/ActionControllerComponent")
-attack = NodePath("../EnemyAttack")
+action = NodePath("../EnemyAction")
 enemy_traits = NodePath("..")
 
 [node name="EnemySwapper" type="Node" parent="Enemy" unique_id=1407717974 node_paths=PackedStringArray("stats")]
@@ -88,3 +165,6 @@ stats = NodePath("../EnemyStats")
 
 [node name="EnemyStats" type="Node" parent="Enemy" unique_id=1332081673]
 script = ExtResource("7_tuyco")
+
+[connection signal="pressed" from="Player/ActionButtons/AttackButton" to="Player/ActionButtons" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Player/ActionButtons/HealButton" to="Player/ActionButtons" method="_on_heal_button_pressed"]
