@@ -34,3 +34,9 @@ func heal_damage(percent = stats.heal_percentage, increase = stats.heal_increase
 	amount += increase
 	stats.heal_charges -= 1
 	health.heal_hit_points(amount)
+	
+func max_heal_damage(percent = stats.heal_percentage, increase = stats.heal_increase, heal_beyond_max = false):
+	var amount = stats.max_hit_points * percent
+	amount += increase
+	stats.heal_charges -= 1
+	health.heal_hit_points(amount)

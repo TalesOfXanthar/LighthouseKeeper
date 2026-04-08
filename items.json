@@ -1,12 +1,23 @@
 {
 	"none": {
 		"type_tags": ["armor", "weapon"],
+		"description": "all\ndefense:0\nattack_damage:0",
 		"defense": 0,
 		"attack_damage": 0,
 	},
 	"mega_knife": {
 		"type_tags": ["weapon"],
+		"description": "weapon\ndefense:100\nattack_damage:4",
 		"defense": 100,
 		"attack_damage": 4,
+	},
+	"fish_scalemail": {
+		"type_tags": ["armor"],
+		"description": "armor\nmaxhp:10",
+		"max_hit_points": 10,
+	},
+	"bomb": {
+		"type_tags": ["use"],
+		"description": "item\npress use to deal 5 damage",
 	}
 }
