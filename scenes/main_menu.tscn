@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmos5mavjryvl" path="res://assets/EXTERNAL_MUST_REPLACE!!!/cancel.png" id="5_tbmy8"]
 
 [node name="MainMenu" type="Node" unique_id=1027348327]
+script = ExtResource("2_rtw2f")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1636659993]
 offset_right = 1158.0
@@ -16,43 +17,84 @@ texture = ExtResource("1_l6cm7")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Buttons" type="Control" parent="." unique_id=1624540986]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 640.0
-script = ExtResource("2_rtw2f")
+[node name="Credits" type="ColorRect" parent="." unique_id=553345488]
+unique_name_in_owner = true
+visible = false
+offset_left = 327.0
+offset_top = 327.0
+offset_right = 503.0
+offset_bottom = 583.0
+color = Color(0.23694506, 0.23756582, 0.25142908, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Buttons" unique_id=1353502623]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits" unique_id=200373104]
+z_index = 2
 layout_mode = 0
+offset_right = 410.0
+offset_bottom = 252.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Credits:
+Team Leader: 
+Whitman Garrity
+
+Programming:
+Whitman Garrity
+Sam Corona
+
+Art & Assets:
+Lily Gard
+
+Music:
+Dev Brown
+
+Game Design:
+Guy LASTNAME HERE
+Whitman Garrity
+
+Concept Art:
+PEOPLE GO HERE"
+
+[node name="Credit Close" type="Button" parent="Credits" unique_id=1820595860]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[node name="Menu Buttons" type="HBoxContainer" parent="." unique_id=1353502623]
 offset_left = 160.0
 offset_top = 417.0
-offset_right = 606.0
-offset_bottom = 509.0
+offset_right = 716.0
+offset_bottom = 553.0
 alignment = 1
 
-[node name="Button" type="Button" parent="Buttons/HBoxContainer" unique_id=150730977]
+[node name="NewGame_Button" type="Button" parent="Menu Buttons" unique_id=150730977]
 layout_mode = 2
 text = "New Game"
 icon = ExtResource("2_8ln24")
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="Buttons/HBoxContainer" unique_id=907463545]
+[node name="Continue_Button" type="Button" parent="Menu Buttons" unique_id=907463545]
 layout_mode = 2
 text = "Continue"
 icon = ExtResource("3_rtw2f")
 icon_alignment = 1
 
-[node name="Button3" type="Button" parent="Buttons/HBoxContainer" unique_id=1853240758]
+[node name="Credit_Button" type="Button" parent="Menu Buttons" unique_id=1853240758]
 layout_mode = 2
 text = "Credits"
 icon = ExtResource("4_oa1go")
 icon_alignment = 1
 
-[node name="Button4" type="Button" parent="Buttons/HBoxContainer" unique_id=1744816163]
+[node name="Quit_Button" type="Button" parent="Menu Buttons" unique_id=1744816163]
 layout_mode = 2
 text = "Quit"
 icon = ExtResource("5_tbmy8")
 icon_alignment = 1
 
-[connection signal="pressed" from="Buttons/HBoxContainer/Button4" to="Buttons" method="_on_button_4_pressed"]
+[connection signal="pressed" from="Credits/Credit Close" to="." method="_on_credit_close_pressed"]
+[connection signal="pressed" from="Menu Buttons/NewGame_Button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Menu Buttons/Credit_Button" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="Menu Buttons/Quit_Button" to="." method="_on_quit_button_pressed"]

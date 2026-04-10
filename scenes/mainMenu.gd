@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +11,20 @@ func _process(delta: float) -> void:
 	pass
 	
 
+func _on_credit_button_pressed() -> void:
+	print("debug")
+	$"Menu Buttons".hide()
+	$Credits.show()
 
 
-func _on_button_4_pressed() -> void:
-	pass
+func _on_credit_close_pressed() -> void:
+	$Credits.hide()
+	$"Menu Buttons".show()
+
+
+func _on_new_game_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
