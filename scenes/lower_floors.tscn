@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bpq4bpdqdf5xx" path="res://scenes/inventory_gui_controller.gd" id="8_tuyco"]
 [ext_resource type="Script" uid="uid://p1thiitjlgy2" path="res://components/enemy_swapper_component.gd" id="9_c3ggw"]
 [ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="9_homev"]
-[ext_resource type="Texture2D" uid="uid://5nsr04hapath" path="res://assets/placeholder/placeholder_nothing_item.png" id="10_noxb4"]
+[ext_resource type="Texture2D" uid="uid://cir37qgo01hs8" path="res://assets/placeholder/p_none.png" id="9_sro2b"]
 [ext_resource type="Script" uid="uid://cke33us1h21is" path="res://item_profile_component.gd" id="11_sro2b"]
 
 [node name="LowerFloors" type="Node" unique_id=980170450]
@@ -105,20 +105,21 @@ literally nothing
 Description:
 literally nothing, used for bugtesting"
 
-[node name="ItemTexture" type="TextureRect" parent="Player/ItemProfileComponent/ItemProfile" unique_id=799598571]
+[node name="TextureRect" type="TextureRect" parent="Player/ItemProfileComponent/ItemProfile" unique_id=1015165336]
+texture_filter = 1
 offset_right = 256.0
 offset_bottom = 256.0
-texture = ExtResource("10_noxb4")
+texture = ExtResource("9_sro2b")
 
-[node name="InventoryGUIController" type="Control" parent="Player" unique_id=783507343 node_paths=PackedStringArray("equipper", "stats", "item_profile", "inventory_container", "equip_button")]
+[node name="InventoryGUIController" type="Control" parent="Player" unique_id=783507343 node_paths=PackedStringArray("equipper", "stats", "item_profile", "action_performer", "inventory_container")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("8_tuyco")
 equipper = NodePath("../EquipComponent")
 stats = NodePath("../PlayerStats")
 item_profile = NodePath("../ItemProfileComponent")
+action_performer = NodePath("../ActionControllerComponent")
 inventory_container = NodePath("ScrollContainer/InventoryItems")
-equip_button = NodePath("EquipButton")
 items_group = ExtResource("9_homev")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Player/InventoryGUIController" unique_id=1025452631]
@@ -126,46 +127,10 @@ layout_mode = 0
 offset_top = 512.0
 offset_right = 1152.0
 offset_bottom = 640.0
+scroll_hint_mode = 2
 
 [node name="InventoryItems" type="HBoxContainer" parent="Player/InventoryGUIController/ScrollContainer" unique_id=1672017642]
 layout_mode = 2
-
-[node name="Item1" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=1033766154]
-layout_mode = 2
-toggle_mode = true
-button_pressed = true
-button_group = ExtResource("9_homev")
-text = "none"
-metadata/name = "none"
-
-[node name="Item2" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=2018682903]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("9_homev")
-text = "mega_knife"
-metadata/name = "mega_knife"
-
-[node name="Item3" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=371607515]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("9_homev")
-text = "fish scale mail"
-metadata/name = "fish_scalemail"
-
-[node name="Item4" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=683519137]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("9_homev")
-text = "bomb"
-metadata/name = "bomb"
-
-[node name="EquipButton" type="Button" parent="Player/InventoryGUIController" unique_id=1747136310]
-layout_mode = 0
-offset_left = 832.0
-offset_top = 384.0
-offset_right = 960.0
-offset_bottom = 448.0
-text = "equip weapon"
 
 [node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper")]
 script = ExtResource("4_6u82i")

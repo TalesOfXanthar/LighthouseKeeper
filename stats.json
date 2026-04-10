@@ -10,12 +10,34 @@
 		],
 		[
 			"medium",
-		]
+		],
+		[
+			"medium",
+			"medium_boss",
+		],
+		[
+			"hard",
+		],
+		[
+			"hard",
+			"hard_boss",
+		],
+		[
+			"painful",
+			"painful_boss",
+		],
+		[
+			"deadly",
+		],
+		[
+			"deadly",
+			"deadly_boss",
+		],
 	],
 	"enemies":{
-		"null": {
-			"max_hit_points": 1000,
-			"attack_damage": 0
+		"starter": {
+			"max_hit_points": 16,
+			"attack_damage": 8
 		},
 		"easy": {
 			"max_hit_points": 10,
@@ -29,9 +51,33 @@
 			"max_hit_points": 15,
 			"attack_damage": 8
 		},
-		"": {
-			"max_hit_points": 15,
-			"attack_damage": 8
+		"medium_boss": {
+			"max_hit_points": 30,
+			"attack_damage": 15
+		},
+		"hard": {
+			"max_hit_points": 25,
+			"attack_damage": 11
+		},
+		"hard_boss": {
+			"max_hit_points": 45,
+			"attack_damage": 22
+		},
+		"painful": {
+			"max_hit_points": 40,
+			"attack_damage": 20
+		},
+		"painful_boss": {
+			"max_hit_points": 60,
+			"attack_damage": 35
+		},
+		"deadly": {
+			"max_hit_points": 50,
+			"attack_damage": 30
+		},
+		"deadly_boss": {
+			"max_hit_points": 100,
+			"attack_damage": 60
 		},
 	}
 }

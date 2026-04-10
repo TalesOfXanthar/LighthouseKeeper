@@ -41,12 +41,16 @@ func _ready() -> void:
 ## change later if we want to prevent duplicate enemies in a row.
 func _enemy_died() -> void:
 	is_dead = true
-	var next_spawntable = spawntables[_floor_to_spawntable(floor_number + 1)]
+	var next_spawntable
+	next_spawntable = spawntables[_floor_to_spawntable(floor_number + 1)]
 	
 	# Subtract one here since the len function starts at 1, not 0 like 
 	# arrays do.
 	var enemy_picker = randi_range(0, len(next_spawntable) - 1)
-	next_enemy_name = next_spawntable[enemy_picker]
+	if floor_number + 1 != 1:	
+		next_enemy_name = next_spawntable[enemy_picker]
+	else:
+		next_enemy_name = "starter"
 
 ## Swaps out enemy stats and resets enemy condition, and increases the floor
 ## number.

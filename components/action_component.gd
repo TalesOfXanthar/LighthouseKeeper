@@ -22,6 +22,7 @@ func deal_damage(
 		var damage_amount = damage - defense
 		if random == true:
 			damage_amount += randi_range(stats.attack_randomizer_floor, stats.attack_randomizer_ceiling)
+		damage_amount = clamp(damage_amount, 0, absi(damage_amount))
 		defendant_health.lose_hit_points(damage_amount)
 
 ## Deals damage exactly, useful for future poison effects and whatnot.

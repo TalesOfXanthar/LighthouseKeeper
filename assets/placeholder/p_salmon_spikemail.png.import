@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5nsr04hapath"
-path="res://.godot/imported/placeholder_nothing_item.png-efe2a61ce31071f37e2c927e67da430b.ctex"
+uid="uid://r0sqdt73bfgp"
+path="res://.godot/imported/p_salmon_spikemail.png-6bc94531d3681fdd8a1e8fb5ea63a255.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholder/placeholder_nothing_item.png"
-dest_files=["res://.godot/imported/placeholder_nothing_item.png-efe2a61ce31071f37e2c927e67da430b.ctex"]
+source_file="res://assets/placeholder/p_salmon_spikemail.png"
+dest_files=["res://.godot/imported/p_salmon_spikemail.png-6bc94531d3681fdd8a1e8fb5ea63a255.ctex"]
 
 [params]
 

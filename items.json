@@ -1,5 +1,6 @@
 {
 	"none": {
+		"icon": "res://assets/placeholder/p_none.png",
 		"type_tags": ["armor", "weapon"],
 		"description": "all\ndefense:0\nattack_damage:0",
 		"defense": 0,
@@ -12,9 +13,17 @@
 		"attack_damage": 4,
 	},
 	"fish_scalemail": {
+		"icon": "res://assets/placeholder/p_fish_scalemail.png",
 		"type_tags": ["armor"],
 		"description": "armor\nmaxhp:10",
 		"max_hit_points": 10,
+	},
+	"salmon_spikemail": {
+		"icon": "res://assets/placeholder/p_salmon_spikemail.png",
+		"type_tags": ["armor"],
+		"description": "armor\nmaxhp:10",
+		"max_hit_points": 15,
+		"attack_damage": 5,
 	},
 	"bomb": {
 		"type_tags": ["use"],
