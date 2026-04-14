@@ -13,6 +13,8 @@ var item_json = "res://items.json"
 var item_string = FileAccess.get_file_as_string(item_json)
 var item_dictionary = JSON.parse_string(item_string)
 
+var inventory := []
+
 # note to self: this system will work but its so convulted and wont allow for item
 # descriptions (which we want) so change instead
 
@@ -29,6 +31,7 @@ func add_item(item_name):
 	item.toggle_mode = true
 	item.icon = load(item_dictionary[item_name]["icon"])
 	item.button_group = items_group
+	inventory.append(item_name)
 	inventory_container.add_child(item)
 
 func array_to_inventory(item_array : Array):

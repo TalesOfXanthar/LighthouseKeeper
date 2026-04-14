@@ -5,6 +5,8 @@ class_name HealthComponent
 
 @export var health_label : Label
 
+var is_dead := false
+
 signal died()
 
 # Serves a dual purpose or resetting health to max and removing temporary hit
@@ -12,6 +14,7 @@ signal died()
 func reset_hit_points():
 	stats.current_hit_points = stats.max_hit_points
 	health_label.text = "Health " + str(stats.current_hit_points)
+	is_dead = false
 
 # Function for losing health, the "clampi" function doesn't allow it to go
 # below zero.
@@ -19,6 +22,7 @@ func lose_hit_points(amount):
 	stats.current_hit_points = clampi(stats.current_hit_points - amount, 0, stats.max_hit_points)
 	health_label.text = "Health " + str(stats.current_hit_points)
 	if stats.current_hit_points == 0:
+		is_dead = true
 		died.emit()
 
 # Function for losing health, the clampi function here doesn't allow it to go

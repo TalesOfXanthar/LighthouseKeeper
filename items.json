@@ -21,7 +21,7 @@
 	"salmon_spikemail": {
 		"icon": "res://assets/placeholder/p_salmon_spikemail.png",
 		"type_tags": ["armor"],
-		"description": "armor\nmaxhp:10",
+		"description": "armor\nmaxhp:15\nattack_damage:5",
 		"max_hit_points": 15,
 		"attack_damage": 5,
 	},

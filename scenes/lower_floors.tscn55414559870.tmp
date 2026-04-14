@@ -72,7 +72,7 @@ action = NodePath("../PlayerAction")
 stats = NodePath("../PlayerStats")
 action_performer = NodePath("../ActionControllerComponent")
 attack_button = NodePath("AttackButton")
-heal_button = NodePath("HealButton")
+heal_button = NodePath("")
 
 [node name="AttackButton" type="TextureButton" parent="Player/ActionButtons" unique_id=1060351444]
 layout_mode = 0
@@ -102,7 +102,6 @@ oversampling_override = 1.0
 initial_position = 2
 visible = false
 unresizable = true
-borderless = true
 always_on_top = true
 popup_window = true
 
@@ -149,13 +148,12 @@ scroll_hint_mode = 2
 [node name="InventoryItems" type="HBoxContainer" parent="Player/InventoryGUIController/ScrollContainer" unique_id=1672017642]
 layout_mode = 2
 
-[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper", "fader")]
+[node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper")]
 script = ExtResource("4_6u82i")
 stats = NodePath("EnemyStats")
 health = NodePath("EnemyHealth")
 action = NodePath("CounterActionComponent")
 enemy_swapper = NodePath("EnemySwapper")
-fader = NodePath("../FadeInOut")
 
 [node name="EnemyHealth" type="Node" parent="Enemy" unique_id=2052786982 node_paths=PackedStringArray("stats", "health_label")]
 script = ExtResource("1_p1fvc")
@@ -175,13 +173,11 @@ health = NodePath("../EnemyHealth")
 defendant_health = NodePath("../../Player/PlayerHealth")
 defendant_stats = NodePath("../../Player/PlayerStats")
 
-[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "fader", "action", "enemy_traits", "health")]
+[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "action", "enemy_traits")]
 script = ExtResource("5_ckjuy")
 defendant_action_controller = NodePath("../../Player/ActionControllerComponent")
-fader = NodePath("../../FadeInOut")
 action = NodePath("../EnemyAction")
 enemy_traits = NodePath("..")
-health = NodePath("../EnemyHealth")
 
 [node name="EnemySwapper" type="Node" parent="Enemy" unique_id=1407717974 node_paths=PackedStringArray("stats")]
 script = ExtResource("9_c3ggw")
@@ -197,11 +193,10 @@ offset_right = 704.0
 offset_bottom = 448.0
 texture = ExtResource("15_x1jji")
 
-[node name="FadeInOut" type="Node" parent="." unique_id=1687301781 node_paths=PackedStringArray("black_rectangle", "fade_in_timer", "fade_out_timer")]
+[node name="FadeInOut" type="Node" parent="." unique_id=1687301781 node_paths=PackedStringArray("black_rectangle", "fade_in_timer")]
 script = ExtResource("19_prglk")
 black_rectangle = NodePath("BlackRectangle")
 fade_in_timer = NodePath("FadeInTimer")
-fade_out_timer = NodePath("FadeOutTimer")
 
 [node name="BlackRectangle" type="ColorRect" parent="FadeInOut" unique_id=1563455525]
 z_index = 2
@@ -215,7 +210,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FadeOutTimer" type="Timer" parent="FadeInOut" unique_id=1471061352]
-one_shot = true
 
 [connection signal="pressed" from="Player/ActionButtons/AttackButton" to="Player/ActionButtons" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="Player/ActionButtons/HealButton" to="Player/ActionButtons" method="_on_heal_button_pressed"]
