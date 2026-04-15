@@ -5,6 +5,7 @@ class_name CounterActionComponent
 
 @export var defendant_action_controller : ActionControllerComponent
 @export var fader : FadeInOutComponent
+@export var disabler : ButtonDisabler
 
 @export var action : ActionComponent
 @export var enemy_traits : Enemy
@@ -20,6 +21,7 @@ func _ready() -> void:
 
 func _defendant_performed_action():
 	if health.is_dead:
+		disabler.disable_enable_all_buttons(true)
 		fader.fade_out()
 	else:
 		action.deal_damage()

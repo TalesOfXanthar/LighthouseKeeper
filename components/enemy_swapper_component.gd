@@ -6,6 +6,7 @@ class_name EnemySwapperComponent
 # enemy's stats and changes the former to the latter.
 
 @export var stats: StatsComponent
+@export var sprite: TextureRect
 
 var stats_json = "res://stats.json"
 var stats_string = FileAccess.get_file_as_string(stats_json)
@@ -29,6 +30,11 @@ var base_stats_names = [
 	"attack_randomizer_ceiling",
 ]
 
+var preloaded_sprites = {
+	"fish": preload("res://assets/placeholder/p_fish_demon.png"),
+	"face": preload("res://assets/placeholder/p_face_demon.png"),
+}
+
 func swap_enemy(enemy_name):
 	var new_base_stats : Dictionary = stats_dictionary["enemies"][enemy_name]
 	for stat_num in range(len(base_stats_names)):
@@ -36,3 +42,4 @@ func swap_enemy(enemy_name):
 			stats.set(base_stats_names[stat_num], new_base_stats[base_stats_names[stat_num]])
 		else:
 			stats.set(base_stats_names[stat_num], base_stats_defaults[stat_num])
+	sprite.texture = preloaded_sprites[new_base_stats["sprite"]]

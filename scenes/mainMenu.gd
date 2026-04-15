@@ -1,5 +1,7 @@
 extends Node
+class_name MainMenu
 
+signal enter_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +25,7 @@ func _on_credit_close_pressed() -> void:
 
 
 func _on_new_game_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	enter_game.emit()
 
 
 func _on_quit_button_pressed() -> void:

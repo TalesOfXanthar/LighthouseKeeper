@@ -20,7 +20,6 @@
 [ext_resource type="Script" uid="uid://cke33us1h21is" path="res://item_profile_component.gd" id="11_sro2b"]
 [ext_resource type="Texture2D" uid="uid://c1m2pnis101k3" path="res://assets/placeholder/p_fish_demon.png" id="15_x1jji"]
 [ext_resource type="Script" uid="uid://dcjyiwik5f46k" path="res://scripts/fade_in_out_component.gd" id="19_prglk"]
-[ext_resource type="Script" uid="uid://pnpl6lksssxc" path="res://scenes/button_disabler.gd" id="21_2epjs"]
 
 [node name="LowerFloors" type="Node" unique_id=980170450]
 
@@ -160,6 +159,9 @@ scroll_hint_mode = 2
 [node name="InventoryItems" type="HBoxContainer" parent="Player/InventoryGUIController/ScrollContainer" unique_id=1672017642]
 layout_mode = 2
 
+[node name="DisableTimer" type="Timer" parent="Player" unique_id=1792067877]
+one_shot = true
+
 [node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper", "fader")]
 script = ExtResource("4_6u82i")
 stats = NodePath("EnemyStats")
@@ -186,11 +188,11 @@ health = NodePath("../EnemyHealth")
 defendant_health = NodePath("../../Player/PlayerHealth")
 defendant_stats = NodePath("../../Player/PlayerStats")
 
-[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "fader", "disabler", "action", "enemy_traits", "health")]
+[node name="CounterActionComponent" type="Node" parent="Enemy" unique_id=1350091061 node_paths=PackedStringArray("defendant_action_controller", "fader", "buttons", "action", "enemy_traits", "health")]
 script = ExtResource("5_ckjuy")
 defendant_action_controller = NodePath("../../Player/ActionControllerComponent")
 fader = NodePath("../../FadeInOut")
-disabler = NodePath("../../ButtonDisabler")
+buttons = NodePath("../../Player/ActionButtons")
 action = NodePath("../EnemyAction")
 enemy_traits = NodePath("..")
 health = NodePath("../EnemyHealth")
@@ -229,17 +231,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FadeOutTimer" type="Timer" parent="FadeInOut" unique_id=1471061352]
-one_shot = true
-
-[node name="ButtonDisabler" type="Node" parent="." unique_id=1104063157 node_paths=PackedStringArray("action_buttons", "item_profile", "inventory", "disable_timer")]
-script = ExtResource("21_2epjs")
-action_buttons = NodePath("../Player/ActionButtons")
-item_profile = NodePath("../Player/ItemProfileComponent")
-inventory = NodePath("../Player/InventoryGUIController")
-disable_timer = NodePath("DisableTimer")
-
-[node name="DisableTimer" type="Timer" parent="ButtonDisabler" unique_id=1792067877]
-wait_time = 2.1999999999999997
 one_shot = true
 
 [connection signal="pressed" from="Player/ActionButtons/AttackButton" to="Player/ActionButtons" method="_on_attack_button_pressed"]

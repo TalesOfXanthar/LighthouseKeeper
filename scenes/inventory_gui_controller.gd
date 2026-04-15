@@ -50,3 +50,8 @@ func item_button_action(item_name, tag_type):
 		equipper.equip_unequip(item_name, tag_type)
 	
 	action_performer.perform_action()
+
+func disable_reenable_buttons(is_disabled : bool):
+	for node : Node in inventory_container.get_children():
+		if node.get_class() == "Button":
+			node.disabled = is_disabled

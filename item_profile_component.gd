@@ -42,3 +42,8 @@ func close_profile():
 		if node.get_class() == "Button":
 			node.queue_free()
 	window.visible = false
+
+func disable_reenable_buttons(is_disabled : bool):
+	for node : Node in window.get_children():
+		if node.get_class() == "Button":
+			node.disabled = is_disabled

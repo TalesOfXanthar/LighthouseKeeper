@@ -36,46 +36,57 @@
 	],
 	"enemies":{
 		"starter": {
+			"sprite": "face",
 			"max_hit_points": 16,
 			"attack_damage": 8
 		},
 		"easy": {
+			"sprite": "fish",
 			"max_hit_points": 10,
 			"attack_damage": 5
 		},
 		"easy_boss": {
+			"sprite": "face",
 			"max_hit_points": 25,
 			"attack_damage": 10
 		},
 		"medium": {
+			"sprite": "fish",
 			"max_hit_points": 15,
 			"attack_damage": 8
 		},
 		"medium_boss": {
+			"sprite": "face",
 			"max_hit_points": 30,
 			"attack_damage": 15
 		},
 		"hard": {
+			"sprite": "fish",
 			"max_hit_points": 25,
 			"attack_damage": 11
 		},
 		"hard_boss": {
+			"sprite": "face",
 			"max_hit_points": 45,
 			"attack_damage": 22
 		},
 		"painful": {
+			"sprite": "fish",
 			"max_hit_points": 40,
 			"attack_damage": 20
 		},
 		"painful_boss": {
+			"sprite": "face",
 			"max_hit_points": 60,
 			"attack_damage": 35
 		},
 		"deadly": {
+			"sprite": "fish",
 			"max_hit_points": 50,
 			"attack_damage": 30
 		},
 		"deadly_boss": {
+			"sprite": "face",
 			"max_hit_points": 100,
 			"attack_damage": 60
 		},

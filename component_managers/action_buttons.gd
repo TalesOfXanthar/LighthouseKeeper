@@ -12,8 +12,11 @@ class_name ActionButtons
 @export var heal_button : BaseButton
 
 
-func _ready() -> void:
-	var heal_amount = int((stats.max_hit_points - stats.current_hit_points) * stats.heal_percentage)
+func disable_reenable(is_disabled):
+	attack_button.disabled = is_disabled
+	heal_button.disabled = is_disabled
+	#stat_button.disabled = is_disabled
+	
 
 func _on_attack_button_pressed() -> void:
 	action.deal_damage()

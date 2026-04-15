@@ -12,6 +12,7 @@ var fade := true
 
 func _ready() -> void:
 	set_process(false)
+	black_rectangle.visible = true
 	fade_in_timer.timeout.connect(fade_in_timer_ended)
 	fade_out_timer.timeout.connect(fade_out_timer_ended)
 	fade_in()

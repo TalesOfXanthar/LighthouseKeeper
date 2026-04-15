@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://biyaku18sftcn"]
 
 [ext_resource type="Script" uid="uid://mr6yy4eanp0f" path="res://scenes/main.gd" id="1_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://bxkf3fx76lfpu" path="res://scenes/lower_floors.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://gvbuo7q7w4iq" path="res://scenes/main_menu.tscn" id="2_0wfyh"]
 
-[node name="Main" type="Node" unique_id=357506766]
+[node name="Main" type="Node" unique_id=357506766 node_paths=PackedStringArray("main_menu")]
 script = ExtResource("1_jyhfs")
-
-[node name="LowerFloors" parent="." unique_id=980170450 instance=ExtResource("3_tbgi4")]
+main_menu = NodePath("MainMenu")
 
 [node name="TransitionScreen" type="Node" parent="." unique_id=2117410274]
+
+[node name="MainMenu" parent="." unique_id=1027348327 instance=ExtResource("2_0wfyh")]
