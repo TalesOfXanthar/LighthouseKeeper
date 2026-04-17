@@ -19,12 +19,10 @@ func equip_unequip(item_name, equip_slot : String, is_equip := true):
 		stats.set(equip_slot, item_name)
 	else:
 		stats.set(equip_slot, "none")
-	print("cool")
 	_change_stats_from_item(item_dictionary[item_name], is_equip)
 
 func _change_stats_from_item(item_stats : Dictionary, positive := true) -> void:
 	for stat_name in item_stats.keys():
-		print(stats.get(stat_name))
 		if stats.get(stat_name) != null:	
 			print("cool")
 			var current_stat_value = stats.get(stat_name)

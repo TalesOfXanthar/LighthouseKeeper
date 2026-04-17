@@ -16,9 +16,12 @@ func _ready() -> void:
 	window.close_requested.connect(close_profile)
 	window.popup_window = true
 
-func instate_item_profile(item_name : String):
+func instate_item_profile(item_name : String, item_position : Vector2):
+	if window.visible:
+		close_profile()
 	var item_stats = item_dictionary[item_name]
 	window.size = Vector2(512, 256 + 64 * (len(item_stats["type_tags"])))
+	window.position = item_position
 	for tag_number in range(len(item_stats["type_tags"])):
 		var action_button := Button.new()
 		var type_tag = item_stats["type_tags"][tag_number]

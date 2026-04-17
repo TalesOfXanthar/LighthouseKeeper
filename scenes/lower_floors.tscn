@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://0bnarjmqvxnt" path="res://assets/StatsLightRight.png" id="11_c86at"]
 [ext_resource type="Script" uid="uid://cke33us1h21is" path="res://item_profile_component.gd" id="11_sro2b"]
 [ext_resource type="Texture2D" uid="uid://c1m2pnis101k3" path="res://assets/placeholder/p_fish_demon.png" id="15_x1jji"]
+[ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/inventory_center_light_edges.png" id="16_mfwxe"]
+[ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/inventory_light_right_side_right.png" id="17_ed5eb"]
+[ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/inventory_light_left_side_right.png" id="18_1w0bt"]
 [ext_resource type="Script" uid="uid://dcjyiwik5f46k" path="res://scripts/fade_in_out_component.gd" id="19_prglk"]
 [ext_resource type="Script" uid="uid://pnpl6lksssxc" path="res://scenes/button_disabler.gd" id="21_2epjs"]
 
@@ -110,7 +113,6 @@ description = NodePath("ItemProfile/RichTextLabel")
 
 [node name="ItemProfile" type="Window" parent="Player/ItemProfileComponent" unique_id=87840646]
 oversampling_override = 1.0
-initial_position = 2
 visible = false
 unresizable = true
 borderless = true
@@ -150,14 +152,49 @@ action_performer = NodePath("../ActionControllerComponent")
 inventory_container = NodePath("ScrollContainer/InventoryItems")
 items_group = ExtResource("9_homev")
 
+[node name="Center" type="TextureRect" parent="Player/InventoryGUIController" unique_id=333330567]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 432.0
+offset_right = 920.0
+offset_bottom = 528.0
+texture = ExtResource("16_mfwxe")
+
+[node name="RightSide" type="TextureRect" parent="Player/InventoryGUIController" unique_id=895732565]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 432.0
+offset_right = 960.0
+offset_bottom = 528.0
+texture = ExtResource("17_ed5eb")
+
+[node name="LeftSide" type="TextureRect" parent="Player/InventoryGUIController" unique_id=879957224]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 432.0
+offset_right = 104.0
+offset_bottom = 528.0
+texture = ExtResource("18_1w0bt")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Player/InventoryGUIController" unique_id=1025452631]
 layout_mode = 0
-offset_top = 512.0
-offset_right = 1152.0
-offset_bottom = 640.0
+offset_left = 72.0
+offset_top = 440.0
+offset_right = 952.0
+offset_bottom = 528.0
+horizontal_scroll_mode = 4
+vertical_scroll_mode = 0
 scroll_hint_mode = 2
 
 [node name="InventoryItems" type="HBoxContainer" parent="Player/InventoryGUIController/ScrollContainer" unique_id=1672017642]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Button" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=834957882]
 layout_mode = 2
 
 [node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper", "fader")]

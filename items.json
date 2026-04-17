@@ -6,11 +6,11 @@
 		"defense": 0,
 		"attack_damage": 0,
 	},
-	"mega_knife": {
+	"fishbone_shiv": {
+		"icon": "res://assets/placeholder/p_fishbone_shiv.png",
 		"type_tags": ["weapon"],
-		"description": "weapon\ndefense:100\nattack_damage:4",
-		"defense": 100,
-		"attack_damage": 4,
+		"description": "weapon\nattack_damage:2",
+		"attack_damage": 2,
 	},
 	"fish_scalemail": {
 		"icon": "res://assets/placeholder/p_fish_scalemail.png",
