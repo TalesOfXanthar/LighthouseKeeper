@@ -2,14 +2,13 @@ extends Control
 class_name InventoryGUIController
 
 @export var equipper : EquipComponent
-@export var stats : StatsComponent
-@export var item_profile : ItemProfileComponent
+@export var item_profile : Node
 @export var action_performer : ActionControllerComponent
 
 @export var inventory_container : Container
 @export var items_group : ButtonGroup
 
-var item_json = "res://items.json"
+var item_json = "res://jsons/items.json"
 var item_string = FileAccess.get_file_as_string(item_json)
 var item_dictionary = JSON.parse_string(item_string)
 
@@ -26,13 +25,13 @@ func _ready() -> void:
 	array_to_inventory(["fishbone_shiv", "fish_scalemail", "salmon_spikemail"])
 
 func add_item(item_name):
-	var item = Button.new()
+	var item = TextureButton.new()
 	#item.icon = null
 	item.set_meta("name", item_name)
 	item.toggle_mode = true
 	item.custom_minimum_size = Vector2(80, 80)
-	item.expand_icon = true
-	item.icon = load(item_dictionary[item_name]["icon"])
+	item.stretch_mode = 0
+	item.texture_normal = load(item_dictionary[item_name]["icon"])
 	item.button_group = items_group
 	inventory.append(item_name)
 	inventory_container.add_child(item)

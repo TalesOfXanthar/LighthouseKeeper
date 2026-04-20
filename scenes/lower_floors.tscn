@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bxkf3fx76lfpu"]
 
+[ext_resource type="Script" uid="uid://p6n1byj4yo81" path="res://scenes/lower_floors.gd" id="1_ed5eb"]
 [ext_resource type="Script" uid="uid://bxle88v26h44j" path="res://component_managers/player.gd" id="1_hjlp6"]
 [ext_resource type="Script" uid="uid://b6mh8ruip2tuf" path="res://components/health_component.gd" id="1_p1fvc"]
 [ext_resource type="Texture2D" uid="uid://bstmxyf4iuo22" path="res://assets/DarkCenter3slash8.png" id="1_teks7"]
@@ -10,7 +11,7 @@
 [ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://components/equip_component.gd" id="6_h1h43"]
 [ext_resource type="Script" uid="uid://b0a57u4ff3skc" path="res://component_managers/action_buttons.gd" id="7_homev"]
 [ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://components/stats_component.gd" id="7_tuyco"]
-[ext_resource type="Script" uid="uid://bpq4bpdqdf5xx" path="res://scenes/inventory_gui_controller.gd" id="8_tuyco"]
+[ext_resource type="Script" uid="uid://bpq4bpdqdf5xx" path="res://components/inventory_lower_component.gd" id="8_tuyco"]
 [ext_resource type="Script" uid="uid://p1thiitjlgy2" path="res://components/enemy_swapper_component.gd" id="9_c3ggw"]
 [ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="9_homev"]
 [ext_resource type="Texture2D" uid="uid://cir37qgo01hs8" path="res://assets/placeholder/p_none.png" id="9_sro2b"]
@@ -26,6 +27,7 @@
 [ext_resource type="Script" uid="uid://pnpl6lksssxc" path="res://scenes/button_disabler.gd" id="21_2epjs"]
 
 [node name="LowerFloors" type="Node" unique_id=980170450]
+script = ExtResource("1_ed5eb")
 
 [node name="Misc" type="Node" parent="." unique_id=1075585157]
 
@@ -112,11 +114,13 @@ window = NodePath("ItemProfile")
 description = NodePath("ItemProfile/RichTextLabel")
 
 [node name="ItemProfile" type="Window" parent="Player/ItemProfileComponent" unique_id=87840646]
+transparent_bg = true
 oversampling_override = 1.0
 visible = false
 unresizable = true
 borderless = true
 always_on_top = true
+transparent = true
 popup_window = true
 
 [node name="ColorRect" type="ColorRect" parent="Player/ItemProfileComponent/ItemProfile" unique_id=536881373]
@@ -141,12 +145,11 @@ offset_right = 256.0
 offset_bottom = 256.0
 texture = ExtResource("9_sro2b")
 
-[node name="InventoryGUIController" type="Control" parent="Player" unique_id=783507343 node_paths=PackedStringArray("equipper", "stats", "item_profile", "action_performer", "inventory_container")]
+[node name="InventoryGUIController" type="Control" parent="Player" unique_id=783507343 node_paths=PackedStringArray("equipper", "item_profile", "action_performer", "inventory_container")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("8_tuyco")
 equipper = NodePath("../EquipComponent")
-stats = NodePath("../PlayerStats")
 item_profile = NodePath("../ItemProfileComponent")
 action_performer = NodePath("../ActionControllerComponent")
 inventory_container = NodePath("ScrollContainer/InventoryItems")
@@ -193,9 +196,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
-
-[node name="Button" type="Button" parent="Player/InventoryGUIController/ScrollContainer/InventoryItems" unique_id=834957882]
-layout_mode = 2
 
 [node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper", "fader")]
 script = ExtResource("4_6u82i")

@@ -1,5 +1,4 @@
 extends Node
-class_name ItemProfileComponent
 
 @export var window : Window
 @export var description : RichTextLabel

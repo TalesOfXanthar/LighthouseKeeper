@@ -5,7 +5,7 @@ class_name EquipComponent
 
 @export var stats : StatsComponent
 
-var item_json = "res://items.json"
+var item_json = "res://jsons/items.json"
 var item_string = FileAccess.get_file_as_string(item_json)
 var item_dictionary = JSON.parse_string(item_string)
 

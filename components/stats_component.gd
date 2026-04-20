@@ -24,9 +24,9 @@ class_name StatsComponent
 @export var attack_randomizer_floor := -1
 ## The maximum the damage randomizer can add during a normal attack.
 @export var attack_randomizer_ceiling := 1
-
+## The equipped weapon that changes stats.
 @export var weapon := "none"
-
+## The equipped armor that changes stats.
 @export var armor := "none"
 
 # PLAYER SPECIFIC STATS
@@ -36,5 +36,7 @@ class_name StatsComponent
 @export var heal_increase := 0
 ## The amount of times you can heal left.
 @export var heal_charges := 3
-
+## The equipped light source that changes heal-based stats.
 @export var light := "none"
+## The pool the player can fish from.
+@export var fishing_power := 0

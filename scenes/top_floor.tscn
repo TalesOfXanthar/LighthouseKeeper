@@ -1,93 +1,148 @@
-[gd_scene format=4 uid="uid://bpetdg2tsoe18"]
+[gd_scene format=3 uid="uid://bpetdg2tsoe18"]
 
-[ext_resource type="Texture2D" uid="uid://clqp58w6fe4j8" path="res://assets/placeholder/simple_lighthouse_floor.png" id="1_ucatn"]
-[ext_resource type="Texture2D" uid="uid://ca7qqhi2ojr7o" path="res://assets/placeholder/simple_sky.png" id="2_ouedm"]
-[ext_resource type="Texture2D" uid="uid://xx37xgimq6rt" path="res://assets/placeholder/simple_railing_column.png" id="3_d1h0a"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouedm"]
-texture = ExtResource("1_ucatn")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1h0a"]
-texture = ExtResource("2_ouedm")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_d1h0a"]
-tile_size = Vector2i(64, 64)
-sources/1 = SubResource("TileSetAtlasSource_d1h0a")
-sources/0 = SubResource("TileSetAtlasSource_ouedm")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1b6wg"]
-texture = ExtResource("3_d1h0a")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_3ylbl"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_1b6wg")
+[ext_resource type="Script" uid="uid://x7sljanq6ikn" path="res://components/inventory_top_component.gd" id="1_38xby"]
+[ext_resource type="Script" uid="uid://c1dx7cslh66hv" path="res://scenes/top_floor.gd" id="1_ehl67"]
+[ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/inventory_center_light_edges.png" id="2_3ylbl"]
+[ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/inventory_light_right_side_right.png" id="3_38xby"]
+[ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="3_i2pr8"]
+[ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/inventory_light_left_side_right.png" id="4_qyfgp"]
+[ext_resource type="Script" uid="uid://c57fcaiuuqx4p" path="res://scenes/item_profile_simple_component.gd" id="5_qyfgp"]
+[ext_resource type="Texture2D" uid="uid://cir37qgo01hs8" path="res://assets/placeholder/p_none.png" id="6_qyfgp"]
+[ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://components/equip_component.gd" id="9_ah3rb"]
+[ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://components/stats_component.gd" id="10_iymbp"]
+[ext_resource type="Script" uid="uid://b6yiifqlnv4mf" path="res://scenes/fish_component.gd" id="11_i2pr8"]
+[ext_resource type="Texture2D" uid="uid://dtd6ao801unky" path="res://assets/fish_light_left.png" id="12_ah3rb"]
+[ext_resource type="Script" uid="uid://c0axrru3wd07m" path="res://scenes/chill_buttons.gd" id="12_iymbp"]
+[ext_resource type="Texture2D" uid="uid://dvkw2rbrpxuat" path="res://assets/enter_light_left.png" id="14_ib7fc"]
 
 [node name="TopFloor" type="Node" unique_id=202554889]
+script = ExtResource("1_ehl67")
 
-[node name="FloorAndSky" type="TileMapLayer" parent="." unique_id=1257493293]
-tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAIAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAADAAEAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAANAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAcAAAAAAAAAAAADAAYAAAAAAAAAAAADAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAABAAAAAAAEAAcAAAACAAAAAAAFAAcAAAACAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAYAAAABAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAALAAUAAAAAAAAAAAALAAQAAAAAAAAAAAALAAMAAAAAAAAAAAALAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAANAAUAAAAAAAAAAAANAAQAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAALAAEAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQACAAAAAAABAAAAAQACAAAAAAAAAAAAAQACAAAAAAAAAAEAAQACAAAAAAAAAAIAAQACAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQABAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQABAAAAAAAAAAgAAQABAAAAAAAAAAkAAQABAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAABAAgAAQABAAAAAAACAAgAAQAAAAAAAAABAAcAAQAAAAAAAAABAAYAAQAAAAAAAAABAAUAAQABAAAAAAABAAQAAQABAAAAAAABAAMAAQABAAAAAAABAAIAAQAAAAAAAAABAAEAAQACAAAAAAACAAEAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQABAAAAAAARAAAAAQABAAAAAAARAAEAAQABAAAAAAARAAIAAQAAAAAAAAARAAMAAQABAAAAAAARAAQAAQABAAAAAAARAAUAAQABAAAAAAARAAYAAQAAAAAAAAARAAcAAQAAAAAAAAAQAAcAAQAAAAAAAAAQAAgAAQABAAAAAAAQAAkAAQABAAAAAAARAAkAAQABAAAAAAARAAgAAQAAAAAAAAAPAAkAAQABAAAAAAAOAAkAAQABAAAAAAAPAAgAAQABAAAAAAAQAAYAAQAAAAAAAAAQAAUAAQAAAAAAAAAQAAQAAQABAAAAAAAQAAMAAQAAAAAAAAAQAAIAAQAAAAAAAAAQAAEAAQAAAAAAAAAPAAEAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_d1h0a")
+[node name="InventorySimple" type="Control" parent="." unique_id=101269097 node_paths=PackedStringArray("equipper", "item_profile", "inventory_container")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_38xby")
+equipper = NodePath("../EquipComponent")
+item_profile = NodePath("../ItemProfileSimpleComponent")
+inventory_container = NodePath("ScrollContainer/InventoryItems")
+items_group = ExtResource("3_i2pr8")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1072855102]
-position = Vector2(576, 324)
+[node name="Center" type="TextureRect" parent="InventorySimple" unique_id=1002657282]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 432.0
+offset_right = 920.0
+offset_bottom = 528.0
+texture = ExtResource("2_3ylbl")
 
-[node name="Walls" type="TileMapLayer" parent="." unique_id=445764437]
-tile_map_data = PackedByteArray("AAADAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAACAAcAAAAAAAAAAAACAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAEAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAANAAkAAAAAAAAAAAAPAAYAAAABAAAAAGAPAAUAAAABAAAAAGAPAAQAAAABAAAAAGAPAAMAAAABAAAAAGAMAAAAAAABAAAAADALAAAAAAABAAAAADAKAAAAAAABAAAAADAJAAAAAAABAAAAADAIAAAAAAABAAAAADAHAAAAAAABAAAAADAGAAAAAAABAAAAADAFAAAAAAABAAAAADACAAMAAAABAAAAAFACAAQAAAABAAAAAFACAAUAAAABAAAAAFACAAYAAAABAAAAAFAFAAkAAAABAAAAAAAGAAkAAAABAAAAAAAHAAkAAAACAAAAAAAKAAkAAAACAAAAADALAAkAAAABAAAAAAAMAAkAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_3ylbl")
+[node name="RightSide" type="TextureRect" parent="InventorySimple" unique_id=1049601441]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 432.0
+offset_right = 960.0
+offset_bottom = 528.0
+texture = ExtResource("3_38xby")
+
+[node name="LeftSide" type="TextureRect" parent="InventorySimple" unique_id=1434300087]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 432.0
+offset_right = 104.0
+offset_bottom = 528.0
+texture = ExtResource("4_qyfgp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventorySimple" unique_id=1692345117]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 440.0
+offset_right = 952.0
+offset_bottom = 528.0
+horizontal_scroll_mode = 4
+vertical_scroll_mode = 0
+scroll_hint_mode = 2
+
+[node name="InventoryItems" type="HBoxContainer" parent="InventorySimple/ScrollContainer" unique_id=957772102]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ItemProfileSimpleComponent" type="Node" parent="." unique_id=979384584 node_paths=PackedStringArray("window", "description")]
+script = ExtResource("5_qyfgp")
+window = NodePath("ItemProfile")
+description = NodePath("ItemProfile/RichTextLabel")
+
+[node name="ItemProfile" type="Window" parent="ItemProfileSimpleComponent" unique_id=991995527]
+transparent_bg = true
+oversampling_override = 1.0
+visible = false
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+popup_window = true
+
+[node name="ColorRect" type="ColorRect" parent="ItemProfileSimpleComponent/ItemProfile" unique_id=775622749]
+offset_right = 1152.0
+offset_bottom = 640.0
+color = Color(0.84705883, 0.101960786, 0.42352942, 0.35686275)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ItemProfileSimpleComponent/ItemProfile" unique_id=1572953856]
+offset_left = 256.0
+offset_right = 512.0
+offset_bottom = 256.0
+text = "
+
+Stats:
+literally nothing
+Description:
+literally nothing, used for bugtesting"
+
+[node name="TextureRect" type="TextureRect" parent="ItemProfileSimpleComponent/ItemProfile" unique_id=705383940]
+texture_filter = 1
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("6_qyfgp")
+
+[node name="EquipComponent" type="Node" parent="." unique_id=1799645360 node_paths=PackedStringArray("stats")]
+script = ExtResource("9_ah3rb")
+stats = NodePath("../PlayerStats")
+
+[node name="PlayerStats" type="Node" parent="." unique_id=31093775]
+script = ExtResource("10_iymbp")
+
+[node name="FishComponent" type="Node" parent="." unique_id=556658834 node_paths=PackedStringArray("inventory", "stats")]
+script = ExtResource("11_i2pr8")
+inventory = NodePath("../InventorySimple")
+stats = NodePath("../PlayerStats")
+
+[node name="ChillButtons" type="Control" parent="." unique_id=986480384 node_paths=PackedStringArray("fish_button", "fisher", "top_floor")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("12_iymbp")
+fish_button = NodePath("FishButton")
+fisher = NodePath("../FishComponent")
+top_floor = NodePath("..")
+
+[node name="FishButton" type="TextureButton" parent="ChillButtons" unique_id=710814174]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 256.0
+offset_bottom = 184.0
+texture_normal = ExtResource("12_ah3rb")
+stretch_mode = 0
+
+[node name="EnterButton" type="TextureButton" parent="ChillButtons" unique_id=697581535]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 264.0
+offset_right = 256.0
+offset_bottom = 320.0
+texture_normal = ExtResource("14_ib7fc")
+stretch_mode = 0
+
+[connection signal="pressed" from="ChillButtons/FishButton" to="ChillButtons" method="_on_fish_button_pressed"]
+[connection signal="pressed" from="ChillButtons/EnterButton" to="ChillButtons" method="_on_enter_button_pressed"]

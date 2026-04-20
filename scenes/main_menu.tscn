@@ -96,5 +96,6 @@ icon_alignment = 1
 
 [connection signal="pressed" from="Credits/Credit Close" to="." method="_on_credit_close_pressed"]
 [connection signal="pressed" from="Menu Buttons/NewGame_Button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Menu Buttons/Continue_Button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Menu Buttons/Credit_Button" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="Menu Buttons/Quit_Button" to="." method="_on_quit_button_pressed"]

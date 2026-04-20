@@ -12,7 +12,7 @@ class_name Enemy
 
 signal new_enemy
 
-var stats_json = "res://stats.json"
+var stats_json = "res://jsons/stats.json"
 var stats_string = FileAccess.get_file_as_string(stats_json)
 var stats_dictionary = JSON.parse_string(stats_string)
 var spawntables = stats_dictionary["spawntables"]

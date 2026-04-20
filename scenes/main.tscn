@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://mr6yy4eanp0f" path="res://scenes/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://gvbuo7q7w4iq" path="res://scenes/main_menu.tscn" id="2_0wfyh"]
 
-[node name="Main" type="Node" unique_id=357506766 node_paths=PackedStringArray("main_menu")]
+[node name="Main" type="Node" unique_id=357506766 node_paths=PackedStringArray("main_menu_script")]
 script = ExtResource("1_jyhfs")
-main_menu = NodePath("MainMenu")
+main_menu_script = NodePath("MainMenu")
 
 [node name="TransitionScreen" type="Node" parent="." unique_id=2117410274]
 
