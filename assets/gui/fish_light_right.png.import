@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0bnarjmqvxnt"
-path="res://.godot/imported/StatsLightRight.png-b735122c9adfb7b9fe41c2d07d5dd749.ctex"
+uid="uid://bfemrt6bg6h4f"
+path="res://.godot/imported/fish_light_right.png-91ef4e993fa1cf7ba44754d8fe3674c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatsLightRight.png"
-dest_files=["res://.godot/imported/StatsLightRight.png-b735122c9adfb7b9fe41c2d07d5dd749.ctex"]
+source_file="res://assets/gui/fish_light_right.png"
+dest_files=["res://.godot/imported/fish_light_right.png-91ef4e993fa1cf7ba44754d8fe3674c9.ctex"]
 
 [params]
 

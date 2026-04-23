@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://p6n1byj4yo81" path="res://scenes/lower_floors.gd" id="1_ed5eb"]
 [ext_resource type="Script" uid="uid://bxle88v26h44j" path="res://component_managers/player.gd" id="1_hjlp6"]
 [ext_resource type="Script" uid="uid://b6mh8ruip2tuf" path="res://components/health_component.gd" id="1_p1fvc"]
-[ext_resource type="Texture2D" uid="uid://bstmxyf4iuo22" path="res://assets/backrounds/DarkCenter3slash8.png" id="1_teks7"]
+[ext_resource type="Texture2D" uid="uid://bstmxyf4iuo22" path="res://assets/DarkCenter3slash8.png" id="1_teks7"]
 [ext_resource type="Script" uid="uid://dqhu3a4icbu7w" path="res://components/action_component.gd" id="2_tlmp2"]
 [ext_resource type="Script" uid="uid://cqu4hxfkt0srn" path="res://component_managers/enemy.gd" id="4_6u82i"]
 [ext_resource type="Script" uid="uid://b01htnlavlyg6" path="res://components/action_controller_component.gd" id="5_0tqfk"]
@@ -15,25 +15,19 @@
 [ext_resource type="Script" uid="uid://p1thiitjlgy2" path="res://components/enemy_swapper_component.gd" id="9_c3ggw"]
 [ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="9_homev"]
 [ext_resource type="Texture2D" uid="uid://cir37qgo01hs8" path="res://assets/placeholder/p_none.png" id="9_sro2b"]
-[ext_resource type="Texture2D" uid="uid://di8yqo6yopgj6" path="res://assets/gui/AttackLightLeft.png" id="9_teks7"]
-[ext_resource type="Texture2D" uid="uid://5pvhqpasv577" path="res://assets/gui/HealLightLeft.png" id="10_fvvxd"]
-[ext_resource type="Texture2D" uid="uid://d3r0xra8vxkx1" path="res://assets/gui/pressed_light_left.png" id="11_kn32x"]
+[ext_resource type="Texture2D" uid="uid://di8yqo6yopgj6" path="res://assets/AttackLightLeft.png" id="9_teks7"]
+[ext_resource type="Texture2D" uid="uid://5pvhqpasv577" path="res://assets/HealLightLeft.png" id="10_fvvxd"]
+[ext_resource type="Texture2D" uid="uid://0bnarjmqvxnt" path="res://assets/StatsLightRight.png" id="11_c86at"]
 [ext_resource type="Script" uid="uid://cke33us1h21is" path="res://item_profile_component.gd" id="11_sro2b"]
-[ext_resource type="Texture2D" uid="uid://eb26hlbalxg0" path="res://assets/gui/gear_light_right.png" id="12_1w0bt"]
-[ext_resource type="Texture2D" uid="uid://cvglkhlqbvncr" path="res://assets/gui/pressed_light_right.png" id="14_2d51o"]
 [ext_resource type="Texture2D" uid="uid://c1m2pnis101k3" path="res://assets/placeholder/p_fish_demon.png" id="15_x1jji"]
-[ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/gui/inventory_center_light_edges.png" id="16_mfwxe"]
-[ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/gui/inventory_light_right_side_right.png" id="17_ed5eb"]
-[ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/gui/inventory_light_left_side_right.png" id="18_1w0bt"]
+[ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/inventory_center_light_edges.png" id="16_mfwxe"]
+[ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/inventory_light_right_side_right.png" id="17_ed5eb"]
+[ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/inventory_light_left_side_right.png" id="18_1w0bt"]
 [ext_resource type="Script" uid="uid://dcjyiwik5f46k" path="res://scripts/fade_in_out_component.gd" id="19_prglk"]
-[ext_resource type="Script" uid="uid://cf5p22qx6gs18" path="res://scenes/stats_profile_component.gd" id="20_1w0bt"]
 [ext_resource type="Script" uid="uid://pnpl6lksssxc" path="res://scenes/button_disabler.gd" id="21_2epjs"]
 
-[node name="LowerFloors" type="Node" unique_id=980170450 node_paths=PackedStringArray("inventory", "equipper", "stats")]
+[node name="LowerFloors" type="Node" unique_id=980170450]
 script = ExtResource("1_ed5eb")
-inventory = NodePath("Player/InventoryGUIController")
-equipper = NodePath("Player/EquipComponent")
-stats = NodePath("Player/PlayerStats")
 
 [node name="Misc" type="Node" parent="." unique_id=1075585157]
 
@@ -43,12 +37,11 @@ offset_right = 1024.0
 offset_bottom = 576.0
 texture = ExtResource("1_teks7")
 
-[node name="Player" type="Node" parent="." unique_id=892246531 node_paths=PackedStringArray("stats", "health", "lower_floors", "fader")]
+[node name="Player" type="Node" parent="." unique_id=892246531 node_paths=PackedStringArray("stats", "health", "lower_floors")]
 script = ExtResource("1_hjlp6")
 stats = NodePath("PlayerStats")
 health = NodePath("PlayerHealth")
 lower_floors = NodePath("..")
-fader = NodePath("../FadeInOut")
 
 [node name="PlayerHealth" type="Node" parent="Player" unique_id=1605038635 node_paths=PackedStringArray("stats", "health_label")]
 script = ExtResource("1_p1fvc")
@@ -72,25 +65,22 @@ defendant_stats = NodePath("../../Enemy/EnemyStats")
 [node name="ActionControllerComponent" type="Node" parent="Player" unique_id=1673276164]
 script = ExtResource("5_0tqfk")
 
-[node name="EquipComponent" type="Node" parent="Player" unique_id=1931694659 node_paths=PackedStringArray("stats", "gear_profile")]
+[node name="EquipComponent" type="Node" parent="Player" unique_id=1931694659 node_paths=PackedStringArray("stats")]
 script = ExtResource("6_h1h43")
 stats = NodePath("../PlayerStats")
-gear_profile = NodePath("../GearProfileComponent")
 
 [node name="PlayerStats" type="Node" parent="Player" unique_id=295149869]
 script = ExtResource("7_tuyco")
 
-[node name="ActionButtons" type="Control" parent="Player" unique_id=1953209855 node_paths=PackedStringArray("action", "stats", "action_performer", "gear_profile", "attack_button", "heal_button", "gear_button")]
+[node name="ActionButtons" type="Control" parent="Player" unique_id=1953209855 node_paths=PackedStringArray("action", "stats", "action_performer", "attack_button", "heal_button")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("7_homev")
 action = NodePath("../PlayerAction")
 stats = NodePath("../PlayerStats")
 action_performer = NodePath("../ActionControllerComponent")
-gear_profile = NodePath("../GearProfileComponent")
 attack_button = NodePath("AttackButton")
 heal_button = NodePath("HealButton")
-gear_button = NodePath("GearButton")
 
 [node name="AttackButton" type="TextureButton" parent="Player/ActionButtons" unique_id=1060351444]
 layout_mode = 0
@@ -99,7 +89,6 @@ offset_top = 128.0
 offset_right = 256.0
 offset_bottom = 184.0
 texture_normal = ExtResource("9_teks7")
-texture_pressed = ExtResource("11_kn32x")
 stretch_mode = 0
 
 [node name="HealButton" type="TextureButton" parent="Player/ActionButtons" unique_id=390174112]
@@ -109,17 +98,15 @@ offset_top = 264.0
 offset_right = 256.0
 offset_bottom = 320.0
 texture_normal = ExtResource("10_fvvxd")
-texture_pressed = ExtResource("11_kn32x")
 stretch_mode = 0
 
-[node name="GearButton" type="TextureButton" parent="Player/ActionButtons" unique_id=1988913701]
+[node name="StatsButton" type="TextureButton" parent="Player/ActionButtons" unique_id=1988913701]
 layout_mode = 0
 offset_left = 768.0
 offset_top = 128.0
 offset_right = 960.0
 offset_bottom = 184.0
-texture_normal = ExtResource("12_1w0bt")
-texture_pressed = ExtResource("14_2d51o")
+texture_normal = ExtResource("11_c86at")
 stretch_mode = 0
 
 [node name="ItemProfileComponent" type="Node" parent="Player" unique_id=1628542369 node_paths=PackedStringArray("window", "description")]
@@ -130,7 +117,6 @@ description = NodePath("ItemProfile/RichTextLabel")
 [node name="ItemProfile" type="Window" parent="Player/ItemProfileComponent" unique_id=87840646]
 transparent_bg = true
 oversampling_override = 1.0
-size = Vector2i(512, 100)
 visible = false
 unresizable = true
 borderless = true
@@ -212,145 +198,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="GearProfileComponent" type="Node" parent="Player" unique_id=1378028752 node_paths=PackedStringArray("inventory", "window", "armor_description", "weapon_description", "light_description", "fishing_rod_description", "armor_texture", "weapon_texture", "light_texture", "fishing_rod_texture", "armor_button", "weapon_button", "light_button", "fishing_rod_button")]
-script = ExtResource("20_1w0bt")
-inventory = NodePath("../InventoryGUIController")
-window = NodePath("ItemProfile")
-armor_description = NodePath("ItemProfile/ArmorDescription")
-weapon_description = NodePath("ItemProfile/WeaponDescription")
-light_description = NodePath("ItemProfile/LightDescription")
-fishing_rod_description = NodePath("ItemProfile/FishingRodDescription")
-armor_texture = NodePath("ItemProfile/ArmorTexture")
-weapon_texture = NodePath("ItemProfile/WeaponTexture")
-light_texture = NodePath("ItemProfile/LightTexture")
-fishing_rod_texture = NodePath("ItemProfile/FishingRodTexture")
-armor_button = NodePath("ItemProfile/ArmorButton")
-weapon_button = NodePath("ItemProfile/WeaponButton")
-light_button = NodePath("ItemProfile/LightButton")
-fishing_rod_button = NodePath("ItemProfile/FishingRodButton")
-
-[node name="ItemProfile" type="Window" parent="Player/GearProfileComponent" unique_id=84769355]
-transparent_bg = true
-oversampling_override = 1.0
-initial_position = 2
-size = Vector2i(768, 448)
-visible = false
-unresizable = true
-borderless = true
-always_on_top = true
-transparent = true
-popup_window = true
-
-[node name="ColorRect" type="ColorRect" parent="Player/GearProfileComponent/ItemProfile" unique_id=1931846717]
-offset_right = 768.0
-offset_bottom = 448.0
-color = Color(0.84705883, 0.101960786, 0.42352942, 0.35686275)
-
-[node name="ArmorTexture" type="TextureRect" parent="Player/GearProfileComponent/ItemProfile" unique_id=574846372]
-texture_filter = 1
-offset_right = 192.0
-offset_bottom = 192.0
-texture = ExtResource("9_sro2b")
-
-[node name="WeaponTexture" type="TextureRect" parent="Player/GearProfileComponent/ItemProfile" unique_id=2087917009]
-texture_filter = 1
-offset_left = 192.0
-offset_right = 384.0
-offset_bottom = 192.0
-texture = ExtResource("9_sro2b")
-
-[node name="LightTexture" type="TextureRect" parent="Player/GearProfileComponent/ItemProfile" unique_id=414759245]
-texture_filter = 1
-offset_left = 384.0
-offset_right = 576.0
-offset_bottom = 192.0
-texture = ExtResource("9_sro2b")
-
-[node name="FishingRodTexture" type="TextureRect" parent="Player/GearProfileComponent/ItemProfile" unique_id=332713006]
-texture_filter = 1
-offset_left = 576.0
-offset_right = 768.0
-offset_bottom = 192.0
-texture = ExtResource("9_sro2b")
-
-[node name="ArmorDescription" type="RichTextLabel" parent="Player/GearProfileComponent/ItemProfile" unique_id=1380708297]
-offset_top = 192.0
-offset_right = 192.0
-offset_bottom = 392.0
-text = "
-
-Stats:
-literally nothing
-Description:
-literally nothing, used for bugtesting"
-
-[node name="WeaponDescription" type="RichTextLabel" parent="Player/GearProfileComponent/ItemProfile" unique_id=144688026]
-offset_left = 192.0
-offset_top = 192.0
-offset_right = 384.0
-offset_bottom = 392.0
-text = "
-
-Stats:
-literally nothing
-Description:
-literally nothing, used for bugtesting"
-
-[node name="LightDescription" type="RichTextLabel" parent="Player/GearProfileComponent/ItemProfile" unique_id=33033521]
-offset_left = 384.0
-offset_top = 192.0
-offset_right = 576.0
-offset_bottom = 392.0
-text = "
-
-Stats:
-literally nothing
-Description:
-literally nothing, used for bugtesting"
-
-[node name="FishingRodDescription" type="RichTextLabel" parent="Player/GearProfileComponent/ItemProfile" unique_id=716544214]
-offset_left = 576.0
-offset_top = 192.0
-offset_right = 768.0
-offset_bottom = 392.0
-text = "
-
-Stats:
-literally nothing
-Description:
-literally nothing, used for bugtesting"
-
-[node name="ArmorButton" type="Button" parent="Player/GearProfileComponent/ItemProfile" unique_id=1732033464]
-offset_top = 392.0
-offset_right = 192.0
-offset_bottom = 448.0
-text = "Armor"
-metadata/tag_type = "armor"
-
-[node name="WeaponButton" type="Button" parent="Player/GearProfileComponent/ItemProfile" unique_id=1860674543]
-offset_left = 192.0
-offset_top = 392.0
-offset_right = 384.0
-offset_bottom = 448.0
-text = "Armor"
-metadata/tag_type = "weapon"
-
-[node name="LightButton" type="Button" parent="Player/GearProfileComponent/ItemProfile" unique_id=1212052616]
-offset_left = 384.0
-offset_top = 392.0
-offset_right = 576.0
-offset_bottom = 448.0
-text = "Armor"
-metadata/tag_type = "light"
-
-[node name="FishingRodButton" type="Button" parent="Player/GearProfileComponent/ItemProfile" unique_id=873267639]
-offset_left = 576.0
-offset_top = 392.0
-offset_right = 768.0
-offset_bottom = 448.0
-text = "Armor"
-metadata/tag_type = "fishing_rod"
-
 [node name="Enemy" type="Node" parent="." unique_id=1309397528 node_paths=PackedStringArray("stats", "health", "action", "enemy_swapper", "fader")]
 script = ExtResource("4_6u82i")
 stats = NodePath("EnemyStats")
@@ -401,8 +248,6 @@ offset_right = 704.0
 offset_bottom = 448.0
 texture = ExtResource("15_x1jji")
 
-[node name="EnemyTraits" type="Node" parent="Enemy" unique_id=243049230]
-
 [node name="FadeInOut" type="Node" parent="." unique_id=1687301781 node_paths=PackedStringArray("black_rectangle", "fade_in_timer", "fade_out_timer")]
 script = ExtResource("19_prglk")
 black_rectangle = NodePath("BlackRectangle")
@@ -437,4 +282,3 @@ one_shot = true
 
 [connection signal="pressed" from="Player/ActionButtons/AttackButton" to="Player/ActionButtons" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="Player/ActionButtons/HealButton" to="Player/ActionButtons" method="_on_heal_button_pressed"]
-[connection signal="pressed" from="Player/ActionButtons/GearButton" to="Player/ActionButtons" method="_on_gear_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d13ct6hbhp1i1"
-path="res://.godot/imported/inventory_center_light_center.png-b4ad7c04ef8d101202ce76adc0f3552a.ctex"
+uid="uid://dbir2i5s2xmqj"
+path="res://.godot/imported/AttackLightRight.png-c5e3c7027a66276be0217ef9a18cf7f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_center_light_center.png"
-dest_files=["res://.godot/imported/inventory_center_light_center.png-b4ad7c04ef8d101202ce76adc0f3552a.ctex"]
+source_file="res://assets/gui/AttackLightRight.png"
+dest_files=["res://.godot/imported/AttackLightRight.png-c5e3c7027a66276be0217ef9a18cf7f4.ctex"]
 
 [params]
 

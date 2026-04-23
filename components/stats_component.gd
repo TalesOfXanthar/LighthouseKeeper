@@ -11,7 +11,7 @@ class_name StatsComponent
 
 # ALL STATS
 ## The maximum amount of hit points.
-@export var max_hit_points := 10
+@export var max_hit_points := 40
 ## The current amount of hit points.
 @export var current_hit_points := 10
 ## The amount of base damage delt during an attack.
@@ -31,12 +31,14 @@ class_name StatsComponent
 
 # PLAYER SPECIFIC STATS
 ## The percentage of your lost hit points that you will heal.
-@export var heal_percentage := 0.5
+@export var heal_percentage := 0.0
 ## The amount of hit points you will heal added to the percentage.
 @export var heal_increase := 0
 ## The amount of times you can heal left.
-@export var heal_charges := 3
+@export var heal_charges := 0
 ## The equipped light source that changes heal-based stats.
 @export var light := "none"
 ## The pool the player can fish from.
 @export var fishing_power := 0
+## The equipped fishing rod that changes stats.
+@export var fishing_rod := "none"

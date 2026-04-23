@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gqxf33cfbbti"
-path="res://.godot/imported/LightCenter3slash8.png-9fbbea4d1094baa3c0f82fac5f98e898.ctex"
+uid="uid://2kcfos0ffho5"
+path="res://.godot/imported/inventory_light_left_side_right.png-24ddc6161ea6fe16f0c85ff008674efe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/LightCenter3slash8.png"
-dest_files=["res://.godot/imported/LightCenter3slash8.png-9fbbea4d1094baa3c0f82fac5f98e898.ctex"]
+source_file="res://assets/gui/inventory_light_left_side_right.png"
+dest_files=["res://.godot/imported/inventory_light_left_side_right.png-24ddc6161ea6fe16f0c85ff008674efe.ctex"]
 
 [params]
 

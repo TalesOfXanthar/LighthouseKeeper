@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2kcfos0ffho5"
-path="res://.godot/imported/inventory_light_left_side_right.png-48c929c7162223a6190f05ef73f2fdbd.ctex"
+uid="uid://dj7tki7srpxjl"
+path="res://.godot/imported/craft_light_right.png-31aafbc5026ea6c3ad720675f4873642.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_light_left_side_right.png"
-dest_files=["res://.godot/imported/inventory_light_left_side_right.png-48c929c7162223a6190f05ef73f2fdbd.ctex"]
+source_file="res://assets/gui/craft_light_right.png"
+dest_files=["res://.godot/imported/craft_light_right.png-31aafbc5026ea6c3ad720675f4873642.ctex"]
 
 [params]
 

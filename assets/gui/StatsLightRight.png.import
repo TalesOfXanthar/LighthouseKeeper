@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3fcuoc6lvhb5"
-path="res://.godot/imported/enter_light_right.png-e8587570bacb83e6dc603bfc918b25c6.ctex"
+uid="uid://0bnarjmqvxnt"
+path="res://.godot/imported/StatsLightRight.png-f0ee102815b8dea02e3305bf020d03e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enter_light_right.png"
-dest_files=["res://.godot/imported/enter_light_right.png-e8587570bacb83e6dc603bfc918b25c6.ctex"]
+source_file="res://assets/gui/StatsLightRight.png"
+dest_files=["res://.godot/imported/StatsLightRight.png-f0ee102815b8dea02e3305bf020d03e6.ctex"]
 
 [params]
 

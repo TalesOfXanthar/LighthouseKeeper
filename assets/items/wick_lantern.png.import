@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l771mu1rexan"
-path="res://.godot/imported/inventory_light_right_side_right.png-325c522c3243418f8d5d186ae6fbf054.ctex"
+uid="uid://xwo7kw5r5yyh"
+path="res://.godot/imported/wick_lantern.png-b5c1e9ff0d52253a291bc3f50b6a3bff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_light_right_side_right.png"
-dest_files=["res://.godot/imported/inventory_light_right_side_right.png-325c522c3243418f8d5d186ae6fbf054.ctex"]
+source_file="res://assets/items/wick_lantern.png"
+dest_files=["res://.godot/imported/wick_lantern.png-b5c1e9ff0d52253a291bc3f50b6a3bff.ctex"]
 
 [params]
 

@@ -2,21 +2,30 @@
 
 [ext_resource type="Script" uid="uid://x7sljanq6ikn" path="res://components/inventory_top_component.gd" id="1_38xby"]
 [ext_resource type="Script" uid="uid://c1dx7cslh66hv" path="res://scenes/top_floor.gd" id="1_ehl67"]
-[ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/inventory_center_light_edges.png" id="2_3ylbl"]
-[ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/inventory_light_right_side_right.png" id="3_38xby"]
+[ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/gui/inventory_center_light_edges.png" id="2_3ylbl"]
+[ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/gui/inventory_light_right_side_right.png" id="3_38xby"]
 [ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="3_i2pr8"]
-[ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/inventory_light_left_side_right.png" id="4_qyfgp"]
+[ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/gui/inventory_light_left_side_right.png" id="4_qyfgp"]
 [ext_resource type="Script" uid="uid://c57fcaiuuqx4p" path="res://scenes/item_profile_simple_component.gd" id="5_qyfgp"]
 [ext_resource type="Texture2D" uid="uid://cir37qgo01hs8" path="res://assets/placeholder/p_none.png" id="6_qyfgp"]
 [ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://components/equip_component.gd" id="9_ah3rb"]
 [ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://components/stats_component.gd" id="10_iymbp"]
 [ext_resource type="Script" uid="uid://b6yiifqlnv4mf" path="res://scenes/fish_component.gd" id="11_i2pr8"]
-[ext_resource type="Texture2D" uid="uid://dtd6ao801unky" path="res://assets/fish_light_left.png" id="12_ah3rb"]
+[ext_resource type="Texture2D" uid="uid://dtd6ao801unky" path="res://assets/gui/fish_light_left.png" id="12_ah3rb"]
 [ext_resource type="Script" uid="uid://c0axrru3wd07m" path="res://scenes/chill_buttons.gd" id="12_iymbp"]
-[ext_resource type="Texture2D" uid="uid://dvkw2rbrpxuat" path="res://assets/enter_light_left.png" id="14_ib7fc"]
+[ext_resource type="Texture2D" uid="uid://dvkw2rbrpxuat" path="res://assets/gui/enter_light_left.png" id="14_ib7fc"]
+[ext_resource type="Texture2D" uid="uid://d3r0xra8vxkx1" path="res://assets/gui/pressed_light_left.png" id="14_m8786"]
+[ext_resource type="Texture2D" uid="uid://eb26hlbalxg0" path="res://assets/gui/gear_light_right.png" id="15_jdmu4"]
+[ext_resource type="Script" uid="uid://cf5p22qx6gs18" path="res://scenes/stats_profile_component.gd" id="15_n1gka"]
+[ext_resource type="Texture2D" uid="uid://dj7tki7srpxjl" path="res://assets/gui/craft_light_right.png" id="16_ov54p"]
+[ext_resource type="Texture2D" uid="uid://cvglkhlqbvncr" path="res://assets/gui/pressed_light_right.png" id="17_6eamp"]
+[ext_resource type="Script" uid="uid://dcjyiwik5f46k" path="res://scripts/fade_in_out_component.gd" id="20_6eamp"]
 
-[node name="TopFloor" type="Node" unique_id=202554889]
+[node name="TopFloor" type="Node" unique_id=202554889 node_paths=PackedStringArray("inventory", "equipper", "stats")]
 script = ExtResource("1_ehl67")
+inventory = NodePath("InventorySimple")
+equipper = NodePath("EquipComponent")
+stats = NodePath("PlayerStats")
 
 [node name="InventorySimple" type="Control" parent="." unique_id=101269097 node_paths=PackedStringArray("equipper", "item_profile", "inventory_container")]
 layout_mode = 3
@@ -106,9 +115,10 @@ offset_right = 256.0
 offset_bottom = 256.0
 texture = ExtResource("6_qyfgp")
 
-[node name="EquipComponent" type="Node" parent="." unique_id=1799645360 node_paths=PackedStringArray("stats")]
+[node name="EquipComponent" type="Node" parent="." unique_id=1799645360 node_paths=PackedStringArray("stats", "gear_profile")]
 script = ExtResource("9_ah3rb")
 stats = NodePath("../PlayerStats")
+gear_profile = NodePath("../GearProfileComponent")
 
 [node name="PlayerStats" type="Node" parent="." unique_id=31093775]
 script = ExtResource("10_iymbp")
@@ -118,13 +128,15 @@ script = ExtResource("11_i2pr8")
 inventory = NodePath("../InventorySimple")
 stats = NodePath("../PlayerStats")
 
-[node name="ChillButtons" type="Control" parent="." unique_id=986480384 node_paths=PackedStringArray("fish_button", "fisher", "top_floor")]
+[node name="ChillButtons" type="Control" parent="." unique_id=986480384 node_paths=PackedStringArray("fish_button", "fisher", "top_floor", "gear_profile", "fader")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("12_iymbp")
 fish_button = NodePath("FishButton")
 fisher = NodePath("../FishComponent")
 top_floor = NodePath("..")
+gear_profile = NodePath("../GearProfileComponent")
+fader = NodePath("../FadeInOut")
 
 [node name="FishButton" type="TextureButton" parent="ChillButtons" unique_id=710814174]
 layout_mode = 0
@@ -133,6 +145,7 @@ offset_top = 128.0
 offset_right = 256.0
 offset_bottom = 184.0
 texture_normal = ExtResource("12_ah3rb")
+texture_pressed = ExtResource("14_m8786")
 stretch_mode = 0
 
 [node name="EnterButton" type="TextureButton" parent="ChillButtons" unique_id=697581535]
@@ -142,7 +155,187 @@ offset_top = 264.0
 offset_right = 256.0
 offset_bottom = 320.0
 texture_normal = ExtResource("14_ib7fc")
+texture_pressed = ExtResource("14_m8786")
 stretch_mode = 0
+
+[node name="GearButton" type="TextureButton" parent="ChillButtons" unique_id=1912467751]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 128.0
+offset_right = 960.0
+offset_bottom = 184.0
+texture_normal = ExtResource("15_jdmu4")
+texture_pressed = ExtResource("17_6eamp")
+stretch_mode = 0
+
+[node name="CraftButton" type="TextureButton" parent="ChillButtons" unique_id=1647066904]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 264.0
+offset_right = 960.0
+offset_bottom = 320.0
+texture_normal = ExtResource("16_ov54p")
+texture_pressed = ExtResource("17_6eamp")
+stretch_mode = 0
+
+[node name="GearProfileComponent" type="Node" parent="." unique_id=820699205 node_paths=PackedStringArray("inventory", "stats", "equipper", "window", "armor_description", "weapon_description", "light_description", "fishing_rod_description", "armor_texture", "weapon_texture", "light_texture", "fishing_rod_texture", "armor_button", "weapon_button", "light_button", "fishing_rod_button")]
+script = ExtResource("15_n1gka")
+inventory = NodePath("../InventorySimple")
+stats = NodePath("../PlayerStats")
+equipper = NodePath("../EquipComponent")
+window = NodePath("ItemProfile")
+armor_description = NodePath("ItemProfile/ArmorDescription")
+weapon_description = NodePath("ItemProfile/WeaponDescription")
+light_description = NodePath("ItemProfile/LightDescription")
+fishing_rod_description = NodePath("ItemProfile/FishingRodDescription")
+armor_texture = NodePath("ItemProfile/ArmorTexture")
+weapon_texture = NodePath("ItemProfile/WeaponTexture")
+light_texture = NodePath("ItemProfile/LightTexture")
+fishing_rod_texture = NodePath("ItemProfile/FishingRodTexture")
+armor_button = NodePath("ItemProfile/ArmorButton")
+weapon_button = NodePath("ItemProfile/WeaponButton")
+light_button = NodePath("ItemProfile/LightButton")
+fishing_rod_button = NodePath("ItemProfile/FishingRodButton")
+
+[node name="ItemProfile" type="Window" parent="GearProfileComponent" unique_id=1549914465]
+transparent_bg = true
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(768, 448)
+visible = false
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+popup_window = true
+
+[node name="ColorRect" type="ColorRect" parent="GearProfileComponent/ItemProfile" unique_id=901016399]
+offset_right = 768.0
+offset_bottom = 448.0
+color = Color(0.84705883, 0.101960786, 0.42352942, 0.35686275)
+
+[node name="ArmorTexture" type="TextureRect" parent="GearProfileComponent/ItemProfile" unique_id=394799664]
+texture_filter = 1
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("6_qyfgp")
+
+[node name="WeaponTexture" type="TextureRect" parent="GearProfileComponent/ItemProfile" unique_id=1132715028]
+texture_filter = 1
+offset_left = 192.0
+offset_right = 384.0
+offset_bottom = 192.0
+texture = ExtResource("6_qyfgp")
+
+[node name="LightTexture" type="TextureRect" parent="GearProfileComponent/ItemProfile" unique_id=460492519]
+texture_filter = 1
+offset_left = 384.0
+offset_right = 576.0
+offset_bottom = 192.0
+texture = ExtResource("6_qyfgp")
+
+[node name="FishingRodTexture" type="TextureRect" parent="GearProfileComponent/ItemProfile" unique_id=507067729]
+texture_filter = 1
+offset_left = 576.0
+offset_right = 768.0
+offset_bottom = 192.0
+texture = ExtResource("6_qyfgp")
+
+[node name="ArmorDescription" type="RichTextLabel" parent="GearProfileComponent/ItemProfile" unique_id=1426282009]
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 392.0
+text = "
+
+Stats:
+literally nothing
+Description:
+literally nothing, used for bugtesting"
+
+[node name="WeaponDescription" type="RichTextLabel" parent="GearProfileComponent/ItemProfile" unique_id=215009406]
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 384.0
+offset_bottom = 392.0
+text = "
+
+Stats:
+literally nothing
+Description:
+literally nothing, used for bugtesting"
+
+[node name="LightDescription" type="RichTextLabel" parent="GearProfileComponent/ItemProfile" unique_id=2017864530]
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 576.0
+offset_bottom = 392.0
+text = "
+
+Stats:
+literally nothing
+Description:
+literally nothing, used for bugtesting"
+
+[node name="FishingRodDescription" type="RichTextLabel" parent="GearProfileComponent/ItemProfile" unique_id=1513063266]
+offset_left = 576.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 392.0
+text = "
+
+Stats:
+literally nothing
+Description:
+literally nothing, used for bugtesting"
+
+[node name="ArmorButton" type="Button" parent="GearProfileComponent/ItemProfile" unique_id=1075615870]
+offset_top = 392.0
+offset_right = 192.0
+offset_bottom = 448.0
+text = "Armor"
+
+[node name="WeaponButton" type="Button" parent="GearProfileComponent/ItemProfile" unique_id=791886963]
+offset_left = 192.0
+offset_top = 392.0
+offset_right = 384.0
+offset_bottom = 448.0
+text = "Armor"
+
+[node name="LightButton" type="Button" parent="GearProfileComponent/ItemProfile" unique_id=1187381765]
+offset_left = 384.0
+offset_top = 392.0
+offset_right = 576.0
+offset_bottom = 448.0
+text = "Armor"
+
+[node name="FishingRodButton" type="Button" parent="GearProfileComponent/ItemProfile" unique_id=2001526726]
+offset_left = 576.0
+offset_top = 392.0
+offset_right = 768.0
+offset_bottom = 448.0
+text = "Armor"
+
+[node name="FadeInOut" type="Node" parent="." unique_id=169726252 node_paths=PackedStringArray("black_rectangle", "fade_in_timer", "fade_out_timer")]
+script = ExtResource("20_6eamp")
+black_rectangle = NodePath("BlackRectangle")
+fade_in_timer = NodePath("FadeInTimer")
+fade_out_timer = NodePath("FadeOutTimer")
+
+[node name="BlackRectangle" type="ColorRect" parent="FadeInOut" unique_id=1419821088]
+visible = false
+z_index = 2
+offset_right = 1024.0
+offset_bottom = 576.0
+mouse_filter = 2
+color = Color(0.32024416, 0.32024416, 0.32024413, 1)
+
+[node name="FadeInTimer" type="Timer" parent="FadeInOut" unique_id=866730551]
+wait_time = 2.0
+one_shot = true
+
+[node name="FadeOutTimer" type="Timer" parent="FadeInOut" unique_id=1551751807]
+one_shot = true
 
 [connection signal="pressed" from="ChillButtons/FishButton" to="ChillButtons" method="_on_fish_button_pressed"]
 [connection signal="pressed" from="ChillButtons/EnterButton" to="ChillButtons" method="_on_enter_button_pressed"]
+[connection signal="pressed" from="ChillButtons/GearButton" to="ChillButtons" method="_on_gear_button_pressed"]

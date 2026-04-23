@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvkw2rbrpxuat"
-path="res://.godot/imported/enter_light_left.png-9414c13253b3a8a4a6c34f8d1bf37a8b.ctex"
+uid="uid://d3r0xra8vxkx1"
+path="res://.godot/imported/pressed_light_left.png-52c834b2935529166a018f2044e3cbe6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enter_light_left.png"
-dest_files=["res://.godot/imported/enter_light_left.png-9414c13253b3a8a4a6c34f8d1bf37a8b.ctex"]
+source_file="res://assets/gui/pressed_light_left.png"
+dest_files=["res://.godot/imported/pressed_light_left.png-52c834b2935529166a018f2044e3cbe6.ctex"]
 
 [params]
 

@@ -17,12 +17,8 @@ var inventory := []
 # note to self: this system will work but its so convulted and wont allow for item
 # descriptions (which we want) so change instead
 
-
 func _ready() -> void:
 	items_group.pressed.connect(pressed_item_to_menu)
-	for item in ["fishbone_shiv", "fish_scalemail"]:
-		item_button_action(item, item_dictionary[item]["type_tags"][0], false)
-	array_to_inventory(["fishbone_shiv", "fish_scalemail", "salmon_spikemail"])
 
 func add_item(item_name):
 	var item = TextureButton.new()
@@ -40,10 +36,15 @@ func array_to_inventory(item_array : Array):
 	for item_name in item_array:
 		add_item(item_name)
 
+func inventory_to_array():
+	var items_array := []
+	for item in items_group.get_buttons():
+		items_array.append(item.get_meta("name"))
+	return items_array
+
 func pressed_item_to_menu(useless_var):
 	var selected_item_button : BaseButton = items_group.get_pressed_button()
 	var item_position = selected_item_button.global_position
-	print(item_position)
 	if selected_item_button != null:
 		items_group.get_pressed_button().button_pressed = false
 		item_profile.instate_item_profile(selected_item_button.get_meta("name"), item_position)
@@ -52,6 +53,10 @@ func pressed_item_to_menu(useless_var):
 func item_button_action(item_name, tag_type, triggers_counteraction := true):
 	if tag_type != "use":
 		equipper.equip_unequip(item_name, tag_type)
+		for item in inventory_container.get_children():
+			if item.get_meta("name") == item_name:
+				item.queue_free()
+				break
 	
 	if triggers_counteraction:
 		action_performer.perform_action()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtd6ao801unky"
-path="res://.godot/imported/fish_light_left.png-8a3739b382925cb90075333789063dd5.ctex"
+uid="uid://c81d1rp2ssrfj"
+path="res://.godot/imported/charcoal_lantern.png-356c832960d1499a6df92505fd4c1fc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fish_light_left.png"
-dest_files=["res://.godot/imported/fish_light_left.png-8a3739b382925cb90075333789063dd5.ctex"]
+source_file="res://assets/items/charcoal_lantern.png"
+dest_files=["res://.godot/imported/charcoal_lantern.png-356c832960d1499a6df92505fd4c1fc2.ctex"]
 
 [params]
 

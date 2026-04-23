@@ -17,10 +17,10 @@ signal death_action
 
 func _ready() -> void:
 	defendant_action_controller.connect("performed_action", _defendant_performed_action)
-	fader.fade_out_done.connect(death_action_after_timer)
 
 func _defendant_performed_action():
 	if health.is_dead:
+		fader.fade_out_done.connect(death_action_after_timer)
 		disabler.disable_enable_all_buttons(true)
 		fader.fade_out()
 	else:
@@ -28,3 +28,4 @@ func _defendant_performed_action():
 
 func death_action_after_timer():
 	death_action.emit()
+	fader.fade_out_done.disconnect(death_action_after_timer)

@@ -36,6 +36,7 @@ func instate_item_profile(item_name : String, item_position : Vector2):
 			action_button.text = type_tag
 			action_button.set_meta("type_tag", type_tag)
 		action_button.pressed.connect(action_button_pressed.emit.bind(item_name, type_tag))
+		action_button.pressed.connect(close_profile)
 		window.add_child(action_button)
 	window.visible = true
 	

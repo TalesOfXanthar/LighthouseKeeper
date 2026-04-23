@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://n8g2loepwc1l"
-path="res://.godot/imported/inventory_center_light_edges.png-7e67eab6dfcedcac8a437f79596d4e0d.ctex"
+path="res://.godot/imported/inventory_center_light_edges.png-bf7c713c2a6bdb3445647e6a80341805.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_center_light_edges.png"
-dest_files=["res://.godot/imported/inventory_center_light_edges.png-7e67eab6dfcedcac8a437f79596d4e0d.ctex"]
+source_file="res://assets/gui/inventory_center_light_edges.png"
+dest_files=["res://.godot/imported/inventory_center_light_edges.png-bf7c713c2a6bdb3445647e6a80341805.ctex"]
 
 [params]
 

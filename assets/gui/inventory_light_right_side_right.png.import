@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjloawmyy8pj2"
-path="res://.godot/imported/HealLightRight.png-18e7d3bf6c3cac938e26469cbb023beb.ctex"
+uid="uid://l771mu1rexan"
+path="res://.godot/imported/inventory_light_right_side_right.png-0b516925909163868e49175816da686a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HealLightRight.png"
-dest_files=["res://.godot/imported/HealLightRight.png-18e7d3bf6c3cac938e26469cbb023beb.ctex"]
+source_file="res://assets/gui/inventory_light_right_side_right.png"
+dest_files=["res://.godot/imported/inventory_light_right_side_right.png-0b516925909163868e49175816da686a.ctex"]
 
 [params]
 

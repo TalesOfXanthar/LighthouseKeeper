@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dns123x7cmdm5"
-path="res://.godot/imported/StatsLightLeft.png-aa0dda472708e720dea1ae5bd583106c.ctex"
+uid="uid://bstmxyf4iuo22"
+path="res://.godot/imported/DarkCenter3slash8.png-583af73a81f86fd03f833e92e51cad39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StatsLightLeft.png"
-dest_files=["res://.godot/imported/StatsLightLeft.png-aa0dda472708e720dea1ae5bd583106c.ctex"]
+source_file="res://assets/backrounds/DarkCenter3slash8.png"
+dest_files=["res://.godot/imported/DarkCenter3slash8.png-583af73a81f86fd03f833e92e51cad39.ctex"]
 
 [params]
 
