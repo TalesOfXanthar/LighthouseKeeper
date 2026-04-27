@@ -1,6 +1,64 @@
 [gd_scene format=3 uid="uid://bxjim82mt7j6r"]
 
 [ext_resource type="Script" uid="uid://dcpe5qrnikg2i" path="res://crafting.gd" id="1_p2eb4"]
+[ext_resource type="Script" uid="uid://bdm6466t0wtjd" path="res://scenes/table.gd" id="2_jo1yo"]
+[ext_resource type="Script" uid="uid://dki70q8hi6txt" path="res://scenes/button.gd" id="2_pff4a"]
 
 [node name="Crafting" type="Node" unique_id=2066147260]
 script = ExtResource("1_p2eb4")
+
+[node name="table" type="Node2D" parent="." unique_id=1143970583]
+script = ExtResource("2_jo1yo")
+
+[node name="GridContainer" type="FlowContainer" parent="table" unique_id=1176738655]
+offset_left = 242.00003
+offset_top = 80.00001
+offset_right = 277.00003
+offset_bottom = 118.00001
+scale = Vector2(11.22, 11.22)
+
+[node name="0" type="Button" parent="table/GridContainer" unique_id=1775498843]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="1" type="Button" parent="table/GridContainer" unique_id=1184634401]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="2" type="Button" parent="table/GridContainer" unique_id=1131984840]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="3" type="Button" parent="table/GridContainer" unique_id=1390465191]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="4" type="Button" parent="table/GridContainer" unique_id=1792144242]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="5" type="Button" parent="table/GridContainer" unique_id=973988844]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="6" type="Button" parent="table/GridContainer" unique_id=529000912]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="7" type="Button" parent="table/GridContainer" unique_id=1729570534]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[node name="8" type="Button" parent="table/GridContainer" unique_id=850591088]
+layout_mode = 2
+script = ExtResource("2_pff4a")
+
+[connection signal="pressed" from="table/GridContainer/0" to="table/GridContainer/0" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/1" to="table/GridContainer/1" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/2" to="table/GridContainer/2" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/3" to="table/GridContainer/3" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/4" to="table/GridContainer/4" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/5" to="table/GridContainer/5" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/6" to="table/GridContainer/6" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/7" to="table/GridContainer/7" method="_on_pressed"]
+[connection signal="pressed" from="table/GridContainer/8" to="table/GridContainer/8" method="_on_pressed"]
