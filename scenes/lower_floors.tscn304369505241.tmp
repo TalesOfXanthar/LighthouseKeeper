@@ -123,14 +123,12 @@ texture_normal = ExtResource("12_1w0bt")
 texture_pressed = ExtResource("14_2d51o")
 stretch_mode = 0
 
-[node name="ItemProfile" type="Node" parent="Player" unique_id=1628542369 node_paths=PackedStringArray("window", "description", "label", "texture")]
+[node name="ItemProfileComponent" type="Node" parent="Player" unique_id=1628542369 node_paths=PackedStringArray("window", "description")]
 script = ExtResource("15_kn32x")
-window = NodePath("ProfileWindow")
-description = NodePath("ProfileWindow/RichTextLabel")
-label = NodePath("ProfileWindow/Label")
-texture = NodePath("ProfileWindow/TextureRect")
+window = NodePath("ItemProfile")
+description = NodePath("ItemProfile/RichTextLabel")
 
-[node name="ProfileWindow" type="Window" parent="Player/ItemProfile" unique_id=681078601]
+[node name="ItemProfile" type="Window" parent="Player/ItemProfileComponent" unique_id=681078601]
 transparent_bg = true
 oversampling_override = 1.0
 initial_position = 2
@@ -145,15 +143,15 @@ popup_window = true
 content_scale_mode = 2
 content_scale_aspect = 1
 
-[node name="ColorRect" type="ColorRect" parent="Player/ItemProfile/ProfileWindow" unique_id=2142940321]
+[node name="ColorRect" type="ColorRect" parent="Player/ItemProfileComponent/ItemProfile" unique_id=2142940321]
 offset_right = 1152.0
 offset_bottom = 640.0
 color = Color(0.84705883, 0.101960786, 0.42352942, 0.35686275)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Player/ItemProfile/ProfileWindow" unique_id=1102442415]
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/ItemProfileComponent/ItemProfile" unique_id=1102442415]
 offset_top = 192.0
 offset_right = 192.0
-offset_bottom = 368.0
+offset_bottom = 392.0
 text = "
 
 Stats:
@@ -161,23 +159,18 @@ literally nothing
 Description:
 literally nothing, used for bugtesting"
 
-[node name="TextureRect" type="TextureRect" parent="Player/ItemProfile/ProfileWindow" unique_id=385059121]
+[node name="TextureRect" type="TextureRect" parent="Player/ItemProfileComponent/ItemProfile" unique_id=385059121]
 texture_filter = 1
 offset_right = 192.0
 offset_bottom = 192.0
 texture = ExtResource("9_sro2b")
-
-[node name="Label" type="Label" parent="Player/ItemProfile/ProfileWindow" unique_id=1788892155]
-offset_top = 368.0
-offset_right = 192.0
-offset_bottom = 392.0
 
 [node name="Inventory" type="Control" parent="Player" unique_id=783507343 node_paths=PackedStringArray("equipper", "item_profile", "action_performer", "inventory_container")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("8_tuyco")
 equipper = NodePath("../EquipComponent")
-item_profile = NodePath("../ItemProfile")
+item_profile = NodePath("../ItemProfileComponent")
 action_performer = NodePath("../ActionControllerComponent")
 inventory_container = NodePath("ScrollContainer/InventoryItems")
 items_group = ExtResource("9_homev")
@@ -441,7 +434,7 @@ one_shot = true
 [node name="ButtonDisabler" type="Node" parent="." unique_id=1104063157 node_paths=PackedStringArray("action_buttons", "item_profile", "inventory", "disable_timer")]
 script = ExtResource("21_2epjs")
 action_buttons = NodePath("../Player/ActionButtons")
-item_profile = NodePath("../Player/ItemProfile")
+item_profile = NodePath("../Player/ItemProfileComponent")
 inventory = NodePath("../Player/Inventory")
 disable_timer = NodePath("DisableTimer")
 

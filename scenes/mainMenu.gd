@@ -30,6 +30,7 @@ func _on_new_game_button_pressed() -> void:
 	var file = FileAccess.open("user://fishing_pools.json", FileAccess.WRITE)
 	file.store_string(fishing_pools_string)
 	file.close()
+	GameSaver.new_save_data()
 	enter_game.emit()
 
 
@@ -38,4 +39,5 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_continue_button_pressed() -> void:
+	GameSaver.load_save_data()
 	enter_game.emit()

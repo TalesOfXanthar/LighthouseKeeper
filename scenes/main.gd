@@ -15,7 +15,13 @@ func transition_to_game():
 	add_child(top_floor_scene.instantiate())
 	top_floor_script = get_node("TopFloor")
 	top_floor_script.descend.connect(transition_to_lower)
-	top_floor_script.convert_save_to_inventory([], "none", "none", "none", "none")
+	var save_data = GameSaver.save_data
+	top_floor_script.convert_save_to_inventory(
+		GameSaver.save_data.items, 
+		GameSaver.save_data.armor, 
+		GameSaver.save_data.weapon,
+		GameSaver.save_data.light, 
+		GameSaver.save_data.fishing_rod)
 	
 func transition_to_lower(inventory, armor, weapon, light, fishing_rod):
 	get_node("TopFloor").queue_free()

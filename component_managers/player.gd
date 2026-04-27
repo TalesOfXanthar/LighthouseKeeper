@@ -18,4 +18,4 @@ func _fade_out_death() -> void:
 	
 func _fade_out_ascend() -> void:
 	fader.fade_out_done.disconnect(_fade_out_ascend)
-	lower_floors.convert_inventory_to_save
+	lower_floors.convert_inventory_to_save()

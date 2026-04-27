@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bpetdg2tsoe18"]
 
-[ext_resource type="Script" uid="uid://x7sljanq6ikn" path="res://components/inventory_top_component.gd" id="1_38xby"]
 [ext_resource type="Script" uid="uid://c1dx7cslh66hv" path="res://scenes/top_floor.gd" id="1_ehl67"]
 [ext_resource type="Texture2D" uid="uid://n8g2loepwc1l" path="res://assets/gui/inventory_center_light_edges.png" id="2_3ylbl"]
+[ext_resource type="Script" uid="uid://bpq4bpdqdf5xx" path="res://components/inventory_component.gd" id="2_m8786"]
 [ext_resource type="Texture2D" uid="uid://l771mu1rexan" path="res://assets/gui/inventory_light_right_side_right.png" id="3_38xby"]
 [ext_resource type="ButtonGroup" uid="uid://jbun8agaewbn" path="res://inventory_items_group.tres" id="3_i2pr8"]
 [ext_resource type="Texture2D" uid="uid://2kcfos0ffho5" path="res://assets/gui/inventory_light_left_side_right.png" id="4_qyfgp"]
-[ext_resource type="Script" uid="uid://c57fcaiuuqx4p" path="res://scenes/item_profile_simple_component.gd" id="5_qyfgp"]
 [ext_resource type="Texture2D" uid="uid://cir37qgo01hs8" path="res://assets/placeholder/p_none.png" id="6_qyfgp"]
+[ext_resource type="Script" uid="uid://c57fcaiuuqx4p" path="res://scenes/item_profile_component.gd" id="7_6eamp"]
 [ext_resource type="Script" uid="uid://fafda32ljdcl" path="res://components/equip_component.gd" id="9_ah3rb"]
 [ext_resource type="Script" uid="uid://bqrqiyg6ufbys" path="res://components/stats_component.gd" id="10_iymbp"]
 [ext_resource type="Script" uid="uid://b6yiifqlnv4mf" path="res://scenes/fish_component.gd" id="11_i2pr8"]
@@ -23,20 +23,20 @@
 
 [node name="TopFloor" type="Node" unique_id=202554889 node_paths=PackedStringArray("inventory", "equipper", "stats")]
 script = ExtResource("1_ehl67")
-inventory = NodePath("InventorySimple")
+inventory = NodePath("Inventory")
 equipper = NodePath("EquipComponent")
 stats = NodePath("PlayerStats")
 
-[node name="InventorySimple" type="Control" parent="." unique_id=101269097 node_paths=PackedStringArray("equipper", "item_profile", "inventory_container")]
+[node name="Inventory" type="Control" parent="." unique_id=101269097 node_paths=PackedStringArray("equipper", "item_profile", "inventory_container")]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_38xby")
+script = ExtResource("2_m8786")
 equipper = NodePath("../EquipComponent")
-item_profile = NodePath("../ItemProfileSimpleComponent")
+item_profile = NodePath("../ItemProfile")
 inventory_container = NodePath("ScrollContainer/InventoryItems")
 items_group = ExtResource("3_i2pr8")
 
-[node name="Center" type="TextureRect" parent="InventorySimple" unique_id=1002657282]
+[node name="Center" type="TextureRect" parent="Inventory" unique_id=1002657282]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 432.0
@@ -44,7 +44,7 @@ offset_right = 920.0
 offset_bottom = 528.0
 texture = ExtResource("2_3ylbl")
 
-[node name="RightSide" type="TextureRect" parent="InventorySimple" unique_id=1049601441]
+[node name="RightSide" type="TextureRect" parent="Inventory" unique_id=1049601441]
 layout_mode = 0
 offset_left = 920.0
 offset_top = 432.0
@@ -52,7 +52,7 @@ offset_right = 960.0
 offset_bottom = 528.0
 texture = ExtResource("3_38xby")
 
-[node name="LeftSide" type="TextureRect" parent="InventorySimple" unique_id=1434300087]
+[node name="LeftSide" type="TextureRect" parent="Inventory" unique_id=1434300087]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 432.0
@@ -60,7 +60,7 @@ offset_right = 104.0
 offset_bottom = 528.0
 texture = ExtResource("4_qyfgp")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="InventorySimple" unique_id=1692345117]
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory" unique_id=1692345117]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 440.0
@@ -70,7 +70,7 @@ horizontal_scroll_mode = 4
 vertical_scroll_mode = 0
 scroll_hint_mode = 2
 
-[node name="InventoryItems" type="HBoxContainer" parent="InventorySimple/ScrollContainer" unique_id=957772102]
+[node name="InventoryItems" type="HBoxContainer" parent="Inventory/ScrollContainer" unique_id=957772102]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -78,30 +78,37 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="ItemProfileSimpleComponent" type="Node" parent="." unique_id=979384584 node_paths=PackedStringArray("window", "description")]
-script = ExtResource("5_qyfgp")
-window = NodePath("ItemProfile")
-description = NodePath("ItemProfile/RichTextLabel")
+[node name="ItemProfile" type="Node" parent="." unique_id=979384584 node_paths=PackedStringArray("window", "description", "label", "texture")]
+script = ExtResource("7_6eamp")
+window = NodePath("ProfileWindow")
+description = NodePath("ProfileWindow/RichTextLabel")
+label = NodePath("ProfileWindow/Label")
+texture = NodePath("ProfileWindow/TextureRect")
 
-[node name="ItemProfile" type="Window" parent="ItemProfileSimpleComponent" unique_id=991995527]
+[node name="ProfileWindow" type="Window" parent="ItemProfile" unique_id=991995527]
 transparent_bg = true
 oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(192, 448)
 visible = false
+transient = true
 unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
 popup_window = true
+content_scale_mode = 2
+content_scale_aspect = 1
 
-[node name="ColorRect" type="ColorRect" parent="ItemProfileSimpleComponent/ItemProfile" unique_id=775622749]
+[node name="ColorRect" type="ColorRect" parent="ItemProfile/ProfileWindow" unique_id=775622749]
 offset_right = 1152.0
 offset_bottom = 640.0
 color = Color(0.84705883, 0.101960786, 0.42352942, 0.35686275)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ItemProfileSimpleComponent/ItemProfile" unique_id=1572953856]
-offset_left = 256.0
-offset_right = 512.0
-offset_bottom = 256.0
+[node name="RichTextLabel" type="RichTextLabel" parent="ItemProfile/ProfileWindow" unique_id=1572953856]
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 368.0
 text = "
 
 Stats:
@@ -109,23 +116,31 @@ literally nothing
 Description:
 literally nothing, used for bugtesting"
 
-[node name="TextureRect" type="TextureRect" parent="ItemProfileSimpleComponent/ItemProfile" unique_id=705383940]
+[node name="TextureRect" type="TextureRect" parent="ItemProfile/ProfileWindow" unique_id=705383940]
 texture_filter = 1
-offset_right = 256.0
-offset_bottom = 256.0
+offset_right = 192.0
+offset_bottom = 192.0
 texture = ExtResource("6_qyfgp")
 
-[node name="EquipComponent" type="Node" parent="." unique_id=1799645360 node_paths=PackedStringArray("stats", "gear_profile")]
+[node name="Label" type="Label" parent="ItemProfile/ProfileWindow" unique_id=1802252954]
+offset_top = 368.0
+offset_right = 192.0
+offset_bottom = 392.0
+text = "amount: 1"
+horizontal_alignment = 1
+
+[node name="EquipComponent" type="Node" parent="." unique_id=1799645360 node_paths=PackedStringArray("stats", "gear_profile", "inventory")]
 script = ExtResource("9_ah3rb")
 stats = NodePath("../PlayerStats")
 gear_profile = NodePath("../GearProfileComponent")
+inventory = NodePath("../Inventory")
 
 [node name="PlayerStats" type="Node" parent="." unique_id=31093775]
 script = ExtResource("10_iymbp")
 
 [node name="FishComponent" type="Node" parent="." unique_id=556658834 node_paths=PackedStringArray("inventory", "stats")]
 script = ExtResource("11_i2pr8")
-inventory = NodePath("../InventorySimple")
+inventory = NodePath("../Inventory")
 stats = NodePath("../PlayerStats")
 
 [node name="ChillButtons" type="Control" parent="." unique_id=986480384 node_paths=PackedStringArray("fish_button", "fisher", "top_floor", "gear_profile", "fader")]
@@ -180,7 +195,7 @@ stretch_mode = 0
 
 [node name="GearProfileComponent" type="Node" parent="." unique_id=820699205 node_paths=PackedStringArray("inventory", "stats", "equipper", "window", "armor_description", "weapon_description", "light_description", "fishing_rod_description", "armor_texture", "weapon_texture", "light_texture", "fishing_rod_texture", "armor_button", "weapon_button", "light_button", "fishing_rod_button")]
 script = ExtResource("15_n1gka")
-inventory = NodePath("../InventorySimple")
+inventory = NodePath("../Inventory")
 stats = NodePath("../PlayerStats")
 equipper = NodePath("../EquipComponent")
 window = NodePath("ItemProfile")

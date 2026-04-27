@@ -5,6 +5,7 @@ class_name EquipComponent
 
 @export var stats : StatsComponent
 @export var gear_profile : GearProfileComponent
+@export var inventory : InventoryComponent
 
 var item_json = "res://jsons/items.json"
 var item_string = FileAccess.get_file_as_string(item_json)
@@ -17,6 +18,7 @@ func equip_unequip(item_name, equip_slot : String, is_equip := true):
 		stats.set(equip_slot, item_name)
 	elif is_equip:
 		_change_stats_from_item(item_dictionary[stats.get(equip_slot)], false)
+		inventory.add_item(stats.get(equip_slot))
 		stats.set(equip_slot, item_name)
 	else:
 		stats.set(equip_slot, "none")

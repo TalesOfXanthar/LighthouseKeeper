@@ -3,7 +3,7 @@ class_name ButtonDisabler
 
 @export var action_buttons : ActionButtons
 @export var item_profile : ItemProfileComponent
-@export var inventory : InventoryGUIController
+@export var inventory : InventoryComponent
 
 @export var disable_timer : Timer
 

@@ -1,7 +1,7 @@
 extends Node
 class_name GearProfileComponent
 
-@export var inventory : Node
+@export var inventory : InventoryComponent
 @export var stats : StatsComponent
 @export var equipper : EquipComponent
 
@@ -45,6 +45,7 @@ var empty_descriptions = {
 func _ready() -> void:
 	window.close_requested.connect(close_profile)
 	window.popup_window = true
+	set_process(false)
 	
 	armor_button.pressed.connect(unequip_item.bind("armor"))
 	weapon_button.pressed.connect(unequip_item.bind("weapon"))
@@ -80,10 +81,12 @@ func disable_reenable_buttons(is_disabled : bool):
 	for node : Node in window.get_children():
 		if node.get_class() == "Button":
 			node.disabled = is_disabled
-			
+
+## Gets the current item in the slot you're trying to equip in, adds it to
+## your inventory, and 
 func unequip_item(tag_type : String):
 	var item = stats.get(tag_type)
 	inventory.add_item(item)
-	equipper.equip_unequip(item, tag_type)
+	print(item)
 	update_equipment("none", tag_type)
 	

@@ -1,7 +1,7 @@
 extends Node
 class_name FishComponent
 
-@export var inventory : InventoryTopComponent
+@export var inventory : InventoryComponent
 @export var stats : StatsComponent
 
 var fishing_pools_json = "res://jsons/fishing_pools.json"
